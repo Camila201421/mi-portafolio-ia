@@ -1,0 +1,75 @@
+12 años:
+print("Hola, Mundo")
+Hola, Mundo
+>>> print("Me llamo Camila")
+Me llamo Camila
+
+print("Me llamo ------")
+Me llamo ------
+>>> print("Estoy aprendiendo Python")
+Estoy aprendiendo Python
+>>> print("Quiero aprender a programar")
+Quiero aprender a programar
+
+numero = int(input("¿Qué número quieres comprobar? "))
+¿Qué número quieres comprobar? 20
+>>> if numero % 2 == 0:
+...     print("Es par")
+... else:
+...     print("Es impar")
+...
+Es par
+
+numero = int(input("¿Qué número quieres comprobar? "))
+¿Qué número quieres comprobar? 7
+>>> if numero % 2 == 0:
+...     print("Es par")
+... else:
+...     print("Es impar")
+...
+Es impar
+
+Hola
+>>> def saludar():
+...     print("Hola, estoy aprendiendo Python")
+... saludar()
+...
+Hola, estoy aprendiendo Python
+
+def saludar(nombre):
+...     print("Hola", nombre)
+... saludar("Ana")
+... saludar("Pedro")
+... saludar("Luis")
+...
+Hola Ana
+Hola Pedro
+Hola Luis
+
+def sumar(a, b):
+...     resultado = a + b
+...     print("El resultado es", resultado)
+...
+>>> sumar(10, 5)
+El resultado es 15
+>>>
+>>> def sumar(a, b):
+...     resultado = a + b
+...     print("El resultado es", resultado)
+...
+>>> sumar(20, 30)
+El resultado es 50
+>>>
+>>> def sumar(a, b):
+...     resultado = a + b
+...     print("El resultado es", resultado)
+...
+>>> sumar(7, 8)
+El resultado es 15
+>>>
+>>> def sumar(a, b):
+...     resultado = a + b
+...     print("El resultado es", resultado)
+...
+>>> sumar(100, 25)
+El resultado es 125
