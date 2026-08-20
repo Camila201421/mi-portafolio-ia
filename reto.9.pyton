@@ -9,3 +9,21 @@ Me llamo Camila
 Estoy aprendiendo Python
 >>> print("Quiero aprender a programar")
 Quiero aprender a programar
+
+numero = int(input("¿Qué número quieres comprobar? "))
+¿Qué número quieres comprobar? 20
+>>> if numero % 2 == 0:
+...     print("Es par")
+... else:
+...     print("Es impar")
+...
+Es par
+
+numero = int(input("¿Qué número quieres comprobar? "))
+¿Qué número quieres comprobar? 7
+>>> if numero % 2 == 0:
+...     print("Es par")
+... else:
+...     print("Es impar")
+...
+Es impar
