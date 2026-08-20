@@ -73,3 +73,52 @@ El resultado es 15
 ...
 >>> sumar(100, 25)
 El resultado es 125
+
+def sumar(a, b):
+...     return a + b
+... resultado = sumar(10, 5)
+... print(resultado)
+...
+15
+>>> def restar(a, b):
+...     return a - b
+... resultado = restar(20, 7)
+... print(resultado)
+...
+13
+>>> def restar(a, b):
+...     return a - b
+... resultado = restar(100, 25)
+... print(resultado)
+...
+75
+def restar(a, b):
+...     return a - b
+... print(restar(50, 18))
+...
+32
+
+>>> def comprobar_edad(edad):
+...     if edad >=18:
+...         return "Eres mayor de edad"
+...     else:
+...         return "Eres menor de edad"
+...
+>>> def comprobar_edad(edad):
+...     if edad >=18:
+...         return "Eres mayor de edad"
+...     else:
+...         return "Eres menor de edad"
+... resultado = comprobar_edad(12)
+... print(resultado)
+...
+Eres menor de edad
+>>> def comprobar_edad(edad):
+...     if edad >=18:
+...         return "Eres mayor de edad"
+...     else:
+...         return "Eres menor de edad"
+... resultado = comprobar_edad(20)
+... print(resultado)
+...
+Eres mayor de edad
