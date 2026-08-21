@@ -321,3 +321,30 @@ Zoraya tiene 20 años
 ...         print(persona["nombre"], "tiene", persona["edad"], "años")
 ...
 Lila tiene 13 años
+for persona in personas:
+...     if persona["nombre"] == "Lila":
+...         persona["edad"] = persona["edad"] + 1
+...
+>>>
+>>> for persona in personas:
+...     if persona["nombre"] == "Jose":
+...         persona["edad"] = persona["edad"] + 1
+...
+>>> for persona in personas:
+...     if persona["nombre"] == "Zoraya":
+...         persona["edad"] = persona["edad"] + 1
+...
+>>> print(personas)
+[{'nombre': 'Lila', 'edad': 14}, {'nombre': 'Jose', 'edad': 17}, {'nombre': 'Zoraya', 'edad': 22}]
+for persona in personas:
+...      if persona ["edad"] > 14:
+...          print(persona["nombre"], "tiene", persona["edad"], "años")
+...
+Jose tiene 17 años
+Zoraya tiene 22 años
+for persona in personas:
+...      if persona["nombre"] == "Zoraya":
+...          persona["edad"] = persona["edad"] + 5
+...
+>>> print(personas)
+[{'nombre': 'Lila', 'edad': 14}, {'nombre': 'Jose', 'edad': 17}, {'nombre': 'Zoraya', 'edad': 27}]
