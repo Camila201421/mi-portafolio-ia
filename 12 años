@@ -249,3 +249,24 @@ personas = [
 Lila
 Jose
 Zoraya
+personas = [
+...     {"nombre": "Lila", "edad": 12},
+...     {"nombre": "Jose", "edad": 15},
+...     {"nombre": "Zoraya", "edad": 20}
+... ]
+>>> for persona in personas:
+...     print(persona["nombre"], "tiene", persona["edad"], "años")
+...
+Lila tiene 12 años
+Jose tiene 15 años
+Zoraya tiene 20 años
+>>> for persona in personas:
+...     if persona["edad"] == 15:
+...         print(persona["nombre"])
+...
+Jose
+>>> for persona in personas:
+...     if persona["edad"] == 20:
+...         print(persona["nombre"])
+...
+Zoraya
