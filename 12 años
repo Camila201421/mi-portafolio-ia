@@ -270,3 +270,54 @@ Jose
 ...         print(persona["nombre"])
 ...
 Zoraya
+personas[1]["edad"] = 16
+>>>
+>>> print(personas)
+[{'nombre': 'Lila', 'edad': 12}, {'nombre': 'Jose', 'edad': 16}, {'nombre': 'Zoraya', 'edad': 20}]
+>>> personas[2]["edad"] = 21
+>>> print(personas)
+[{'nombre': 'Lila', 'edad': 12}, {'nombre': 'Jose', 'edad': 16}, {'nombre': 'Zoraya', 'edad': 21}]
+personas[0]["edad"] = 13
+>>> print(personas)
+[{'nombre': 'Lila', 'edad': 13}, {'nombre': 'Jose', 'edad': 16}, {'nombre': 'Zoraya', 'edad': 21}]
+personas = [
+...     {"nombre": "Lila", "edad": 12},
+...     {"nombre": "Jose", "edad": 15},
+...     {"nombre": "Zoraya", "edad": 20}
+... ]
+>>> for persona in personas:
+...     if persona ["edad"] == 20:
+...         print(persona["nombre"])
+...
+Zoraya
+>>> personas[2]["edad"] = 21
+>>> print(personas)
+[{'nombre': 'Lila', 'edad': 12}, {'nombre': 'Jose', 'edad': 15}, {'nombre': 'Zoraya', 'edad': 21}]
+personas = [
+...     {"nombre": "Lila", "edad": 12},
+...     {"nombre": "Jose", "edad": 15},
+...     {"nombre": "Zoraya", "edad": 21}
+... ]
+>>> for persona in personas:
+...     if persona["nombre"] == "Jose":
+...         persona["edad"] = persona["edad"] + 1
+...
+>>> print(personas)
+[{'nombre': 'Lila', 'edad': 12}, {'nombre': 'Jose', 'edad': 16}, {'nombre': 'Zoraya', 'edad': 21}]
+>>> for persona in personas:
+...     if persona["nombre"] == "Lila":
+...         persona["edad"] = persona["edad"] + 1
+...
+>>> print(personas)
+[{'nombre': 'Lila', 'edad': 13}, {'nombre': 'Jose', 'edad': 16}, {'nombre': 'Zoraya', 'edad': 21}]
+ persona in personas:
+...     if persona ["edad"] > 13:
+...         print(persona["nombre"], "tiene", persona["edad"], "años")
+...
+Jose tiene 15 años
+Zoraya tiene 20 años
+>>> for persona in personas:
+...     if persona ["edad"] == 13:
+...         print(persona["nombre"], "tiene", persona["edad"], "años")
+...
+Lila tiene 13 años
