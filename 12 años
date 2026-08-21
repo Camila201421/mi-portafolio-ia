@@ -180,3 +180,60 @@ def tabla(numero):
 72
 81
 90
+
+persona = {
+...     "nombre": "Daniela",
+...     "edad": 35,
+...     "pais": "Francia"
+... }
+>>> print(persona["nombre"])
+Daniela
+>>> print(persona["edad"])
+35
+>>> print(persona["pais"])
+Francia
+>>> animal = {
+...     "nombre": "Luna",
+...     "tipo": "perro",
+...     "edad": 3
+... }
+>>> print(animal["nombre"])
+Luna
+>>> print(animal["tipo"])
+perro
+>>> print(animal["edad"])
+3
+animal = {
+...     "nombre": "Luna",
+...     "tipo": "perro",
+...     "edad": 3
+... }
+>>> animal["edad"] = 4
+>>>
+>>> print(animal)
+{'nombre': 'Luna', 'tipo': 'perro', 'edad': 4}
+>>> animal["color"] = "marrón"
+>>> print(animal)
+{'nombre': 'Luna', 'tipo': 'perro', 'edad': 4, 'color': 'marrón'}
+animal = {
+...     "nombre": "Luna",
+...     "tipo": "perro",
+...     "edad": 4
+... }
+>>> animal["tipo"] = input("Qué animal es? ")
+Qué animal es? gato
+>>> print(animal)
+{'nombre': 'Luna', 'tipo': 'gato', 'edad': 4}
+animal = {
+...     "nombre": "Luna",
+...     "tipo": "perro",
+...     "edad": 4,
+...     "color": "marrón"
+... }
+>>> for clave, valor in animal.items():
+...     print(clave, ":", valor)
+...
+nombre : Luna
+tipo : perro
+edad : 4
+color : marrón
