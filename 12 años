@@ -237,3 +237,15 @@ nombre : Luna
 tipo : perro
 edad : 4
 color : marrón
+
+personas = [
+...     {"nombre": "Lila", "edad": 12},
+...     {"nombre": "Jose", "edad": 15},
+...     {"nombre": "Zoraya", "edad": 20}
+... ]
+>>> for persona in personas:
+...     print(persona["nombre"])
+...
+Lila
+Jose
+Zoraya
