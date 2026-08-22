@@ -348,3 +348,24 @@ for persona in personas:
 ...
 >>> print(personas)
 [{'nombre': 'Lila', 'edad': 14}, {'nombre': 'Jose', 'edad': 17}, {'nombre': 'Zoraya', 'edad': 27}]
+personas = [
+...     {"nombre": "Lila", "edad": 14},
+...     {"nombre": "Jose", "edad": 16},
+...     {"nombre": "Zoraya", "edad": 26}
+... ]
+>>> personas[0]["ciudad"] = "Madrid"
+>>> print(personas[0])
+{'nombre': 'Lila', 'edad': 14, 'ciudad': 'Madrid'}
+>>> personas[1]["ciudad"] = "A coruña"
+>>> print(personas)
+[{'nombre': 'Lila', 'edad': 14, 'ciudad': 'Madrid'}, {'nombre': 'Jose', 'edad': 16, 'ciudad': 'A coruña'}, {'nombre': 'Zoraya', 'edad': 26}]
+personas[2]["ciudad"] = "Barcelona"
+>>> personas[2]["profesión"] = "Ingenieria"
+>>> print(personas[2])
+{'nombre': 'Zoraya', 'edad': 26, 'ciudad': 'Barcelona', 'profesión': 'Ingenieria'}
+personas[1]["profesión"] = "Cocinera"
+>>> print(personas)
+[{'nombre': 'Lila', 'edad': 14, 'ciudad': 'Madrid'}, {'nombre': 'Jose', 'edad': 16, 'ciudad': 'A coruña', 'profesión': 'Cocinera'}, {'nombre': 'Zoraya', 'edad': 26, 'ciudad': 'Barcelona', 'profesión': 'Ingenieria'}]
+sonas[0]["profesión"] = "Emfermera"
+>>> print(personas)
+[{'nombre': 'Lila', 'edad': 14, 'ciudad': 'Madrid', 'profesión': 'Emfermera'}, {'nombre': 'Jose', 'edad': 16, 'ciudad': 'A coruña', 'profesión': 'Cocinera'}, {'nombre': 'Zoraya', 'edad': 26, 'ciudad': 'Barcelona', 'profesión': 'Ingenieria'}]
