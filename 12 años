@@ -369,3 +369,86 @@ personas[1]["profesión"] = "Cocinera"
 sonas[0]["profesión"] = "Emfermera"
 >>> print(personas)
 [{'nombre': 'Lila', 'edad': 14, 'ciudad': 'Madrid', 'profesión': 'Emfermera'}, {'nombre': 'Jose', 'edad': 16, 'ciudad': 'A coruña', 'profesión': 'Cocinera'}, {'nombre': 'Zoraya', 'edad': 26, 'ciudad': 'Barcelona', 'profesión': 'Ingenieria'}]
+>>> for persona in personas:
+...     print(persona["nombre"], "vive en", persona["ciudad"])
+...
+Lila vive en Madrid
+Jose vive en A coruña
+Zoraya vive en Barcelona
+>>> for persona in personas:
+...     print("se llama", persona["nombre"], "y trabaja de", persona["ciudad"])
+...
+se llama Lila y trabaja de Madrid
+se llama Jose y trabaja de A coruña
+se llama Zoraya y trabaja de Barcelona
+>>> for persona in personas:
+...     if "profesion" in persona:
+...         print(persona["nombre"], "es", persona["profesion"])
+...
+>>> persona = {"nombre": "Pedro", "edad": 3, "ciudad": "Valencia"}
+>>>
+>>> if "profesion" in persona:
+...     print(persona["profesion"])
+... else:
+...     print("Pedro no tiene profesion")
+...
+Pedro no tiene profesion
+>>> print(personas)
+[{'nombre': 'Lila', 'edad': 14, 'ciudad': 'Madrid', 'profesión': 'Emfermera'}, {'nombre': 'Jose', 'edad': 16, 'ciudad': 'A coruña', 'profesión': 'Cocinera'}, {'nombre': 'Zoraya', 'edad': 26, 'ciudad': 'Barcelona', 'profesión': 'Ingenieria'}]
+>>> for persona in personas:
+...     if "profesión" in persona:
+...         print(persona["nombre"], "es", persona["profesión"])
+...
+Lila es Emfermera
+Jose es Cocinera
+Zoraya es Ingenieria
+
+>>> edad = 16
+>>>
+>>> if edad >= 18:
+...     print("Es mayor de edad")
+... else:
+...     print("Es menor de edad")
+...
+Es menor de edad
+>>> personas.append({"nombre": "Pedro", "edad": 5, "ciudad": "Vigo"})
+>>> for persona in personas:
+...     if "profesión" in persona:
+...         print(persona["nombre"], "es", persona["profesión"])
+...     else:
+...         print(persona["nombre"], "no tiene profesión")
+...
+Lila es Emfermera
+Jose es Cocinera
+Zoraya es Ingenieria
+Pedro no tiene profesión
+>>> for persona in personas:
+...     if persona["nombre"] == "Pedro":
+...         persona["profesión"] = "Camillero"
+...
+>>> print(personas)
+[{'nombre': 'Lila', 'edad': 14, 'ciudad': 'Madrid', 'profesión': 'Emfermera'}, {'nombre': 'Jose', 'edad': 16, 'ciudad': 'A coruña', 'profesión': 'Cocinera'}, {'nombre': 'Zoraya', 'edad': 26, 'ciudad': 'Barcelona', 'profesión': 'Ingenieria'}, {'nombre': 'Pedro', 'edad': 5, 'ciudad': 'Vigo', 'profesión': 'Camillero'}]
+>>> for persona in personas:
+...     if persona["nombre"] == "Jose":
+...         del persona["profesión"]
+...
+>>> print(personas)
+[{'nombre': 'Lila', 'edad': 14, 'ciudad': 'Madrid', 'profesión': 'Emfermera'}, {'nombre': 'Jose', 'edad': 16, 'ciudad': 'A coruña'}, {'nombre': 'Zoraya', 'edad': 26, 'ciudad': 'Barcelona', 'profesión': 'Ingenieria'}, {'nombre': 'Pedro', 'edad': 5, 'ciudad': 'Vigo', 'profesión': 'Camillero'}]
+>>> for persona in personas:
+...     if persona["nombre"] == "Jose":
+...         persona["profesión"] = "Youtuber"
+...
+>>> print(persona)
+{'nombre': 'Pedro', 'edad': 5, 'ciudad': 'Vigo', 'profesión': 'Camillero'}
+>>> print(personas)
+[{'nombre': 'Lila', 'edad': 14, 'ciudad': 'Madrid', 'profesión': 'Emfermera'}, {'nombre': 'Jose', 'edad': 16, 'ciudad': 'A coruña', 'profesión': 'Youtuber'}, {'nombre': 'Zoraya', 'edad': 26, 'ciudad': 'Barcelona', 'profesión': 'Ingenieria'}, {'nombre': 'Pedro', 'edad': 5, 'ciudad': 'Vigo', 'profesión': 'Camillero'}]
+>>> for persona in personas:
+...     if "profesión" in persona:
+...         print(persona["nombre"], "es", persona["profesión"])
+...     else:
+...         print(persona["nombre"], "no tiene profesión")
+...
+Lila es Emfermera
+Jose es Youtuber
+Zoraya es Ingenieria
+Pedro es Camillero
