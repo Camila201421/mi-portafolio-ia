@@ -452,3 +452,60 @@ Lila es Emfermera
 Jose es Youtuber
 Zoraya es Ingenieria
 Pedro es Camillero
+
+>>> def saludar():
+...     print("Hola")
+...
+>>> saludar()
+Hola
+>>> saludar()
+Hola
+>>> saludar()
+Hola
+>>> def pressentar():
+...     print("Hola, estoy aprendiendo Python")
+...
+>>> pressentar()
+Hola, estoy aprendiendo Python
+pressentar()
+Hola, estoy aprendiendo Python
+>>> def saludar(nombre):
+...     print("Hola", nombre)
+...
+>>> saludar("Dana")
+Hola Dana
+>>> saludar("Jairoalonso")
+Hola Jairoalonso
+>>> def presentarse(nombre, edad):
+...     print("Hola soy", nombre, "y tengo", edad, "años")
+...
+>>> presentarse("Daniela", "35")
+Hola soy Daniela y tengo 35 años
+def sumar(a, b):
+...     return  a + b
+... resultado = sumar(5, 3)
+...
+>>> print(resultado)
+8
+>>> def multiplicar(a, b):
+...     return a * b
+...
+>>> resultado = multiplicar(6, 7)
+>>> print(resultado)
+42
+>>> def restar(a, b):
+...     return a - b
+...
+>>> resultado = restar(10, 4)
+>>> print(resultado)
+6
+>>> def es_mayor(edad):
+...     if edad >= 18:
+...         return "Mayor de edad"
+...     else:
+...         return "Menor de edad"
+...
+>>> print(es_mayor(20))
+Mayor de edad
+>>> print(es_mayor(15))
+Menor de edad
