@@ -509,3 +509,44 @@ def sumar(a, b):
 Mayor de edad
 >>> print(es_mayor(15))
 Menor de edad
+>>> def clasificar_edad(edad):
+...     if edad <= 4:
+...         return "Bebé"
+...     elif edad <= 12:
+...         return "Niño/a"
+...     elif edad <= 17:
+...         return "Adolescente"
+...     elif edad <= 64:
+...         return "Adulto/a"
+...     else:
+...         return "Persona mayor"
+...
+>>> print(clasificar_edad(1))
+... print(clasificar_edad(10))
+... print(clasificar_edad(16))
+... print(clasificar_edad(21))
+... print(clasificar_edad(94))
+...
+Bebé
+Niño/a
+Adolescente
+Adulto/a
+Persona mayor
+>>> def sumar_lista(numero):
+...     total = 0
+...     for numero in numeros:
+...         total = total + numero
+...     return total
+...
+>>> resultado = sumar_lista([5, 10, 15, 20])
+>>> print(resultado)
+50
+>>> numeros = [4, 8, 10, 20, 25]
+>>> def contar_numeros(numeros):
+...     contador = 0
+...     for numero in numeros:
+...         contador = contador + 1
+...     return contador
+...
+>>> print(contar_numeros([4, 8, 10, 20, 25]))
+5
