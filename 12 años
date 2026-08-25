@@ -550,3 +550,63 @@ Persona mayor
 ...
 >>> print(contar_numeros([4, 8, 10, 20, 25]))
 5
+
+>>> def buscar_persona(nombre):
+...     for persona in personas:
+...         if persona["nombre"] == nombre:
+...             return persona
+...
+>>> print(buscar_persona("Jose"))
+{'nombre': 'Jose', 'edad': 16}
+>>> print(buscar_persona("Jose"))
+{'nombre': 'Jose', 'edad': 16}
+>>> def buscar_persona(nombre):
+...     for persona in personas:
+...         if persona ["nombre"] == nombre:
+...             return persona
+...     return "Persona no encontrada"
+...
+>>> print(buscar_persona("Jose"))
+{'nombre': 'Jose', 'edad': 16}
+>>> print(buscar_persona("Dana"))
+Persona no encontrada
+>>> def buscar_por_edad(edad):
+...     for persona in personas:
+...         if persona ["edad"] == edad:
+...             return persona
+...     return "Persona no encontrada"
+...
+>>> print(buscar_por_edad(26))
+{'nombre': 'Zoraya', 'edad': 26}
+>>> print(buscar_por_edad(26))
+{'nombre': 'Zoraya', 'edad': 26}
+>>> def contar_mayores():
+...     contador = 0
+...     for persona in personas:
+...         if persona["edad"] >= 18:
+...             contador = contador + 1
+...     return contador
+...
+>>> print(contar_mayores())
+1
+>>> def promedio_edades():
+...     total = 0
+...     contador = 0
+...     for persona in personas:
+...         total = total + persona["edad"]
+...         contador = contador + 1
+...     return total / contador
+...
+>>> print(promedio_edades())
+18.666666666666668
+>>> def mayor_edad():
+...     mayor = 0
+...     nombre_mayor = ""
+...     for persona in personas:
+...         if persona["edad"] > mayor:
+...             mayor = persona["edad"]
+...             nombre_mayor = persona["nombre"]
+...     return nombre_mayor
+...
+>>> print(mayor_edad())
+Zoraya
