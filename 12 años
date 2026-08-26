@@ -610,3 +610,16 @@ Persona no encontrada
 ...
 >>> print(mayor_edad())
 Zoraya
+>>> personas = [
+...     {"nombre": "Lila", "edad": 14},
+...     {"nombre": "Jose", "edad": 16},
+...     {"nombre": "Zoraya", "edad": 26}
+... ]
+>>> def mostrar_personas():
+...     for persona in personas:
+...         print(persona["nombre"], "_", persona["edad"], "años")
+...
+>>> mostrar_personas()
+Lila _ 14 años
+Jose _ 16 años
+Zoraya _ 26 años
