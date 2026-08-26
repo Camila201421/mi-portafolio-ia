@@ -623,3 +623,38 @@ Zoraya
 Lila _ 14 años
 Jose _ 16 años
 Zoraya _ 26 años
+>>> def agregar_persona():
+...     nombre = input("Nombre: ")
+...     edad = int(input("Edad: "))
+...     personas.append({"nombre": nombre, "edad": edad})
+...
+>>> agregar_persona()
+Nombre: Camila
+Edad: 18
+>>> print(personas)
+[{'nombre': 'Lila', 'edad': 14}, {'nombre': 'Jose', 'edad': 16}, {'nombre': 'Zoraya', 'edad': 26}, {'nombre': 'Camila', 'edad': 18}]
+>>> def eliminar_persona():
+...     nombre = input("Nombre de la persona que quieres eliminar: ")
+...     for persona in personas:
+...         if persona["nombre"] == nombre:
+...             personas.remove(persona)
+...             print("Persona eliminada")
+...
+>>> eliminar_persona()
+Nombre de la persona que quieres eliminar: Camila
+Persona eliminada
+>>> print(personas)
+[{'nombre': 'Lila', 'edad': 14}, {'nombre': 'Jose', 'edad': 16}, {'nombre': 'Zoraya', 'edad': 26}]
+>>> def eliminar_persona():
+...     nombre = input("Nombre de la persona que quieres eliminar: ")
+...     for persona in personas:
+...         personas.remove(persona)
+...         print("Persona eliminada")
+...         return
+...     print("Persona no encontrada")
+...
+>>> eliminar_persona()
+Nombre de la persona que quieres eliminar: Lila
+Persona eliminada
+>>> print(personas)
+[{'nombre': 'Jose', 'edad': 16}, {'nombre': 'Zoraya', 'edad': 26}]
