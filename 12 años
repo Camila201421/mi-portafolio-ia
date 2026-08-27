@@ -658,3 +658,24 @@ Nombre de la persona que quieres eliminar: Lila
 Persona eliminada
 >>> print(personas)
 [{'nombre': 'Jose', 'edad': 16}, {'nombre': 'Zoraya', 'edad': 26}]
+>>> personas = [
+...     {"nombre": "Lila", "edad": 14},
+...     {"nombre": "Jose", "edad": 16},
+...     {"nombre": "Zoraya", "edad": 26}
+... ]
+>>> def mostrar_personas():
+...     for persona in personas:
+...         print(persona["nombre"], "-", persona["edad"], "años")
+...
+>>> opcion = input("Elige una opción: ")
+Elige una opción: 1
+>>> print(opcion)
+1
+>>> print(opcion == "1")
+True
+>>> if opcion == "1":
+...     mostrar_personas()
+...
+Lila - 14 años
+Jose - 16 años
+Zoraya - 26 años
