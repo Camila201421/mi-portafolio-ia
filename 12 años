@@ -679,3 +679,50 @@ True
 Lila - 14 años
 Jose - 16 años
 Zoraya - 26 años
+>>> personas = [
+...     {"nombre": "Lila", "edad": 14},
+...     {"nombre": "Jose", "edad": 16},
+...     {"nombre": "Zoraya", "edad": 26}
+... ]
+>>> print(personas)
+[{'nombre': 'Lila', 'edad': 14}, {'nombre': 'Jose', 'edad': 16}, {'nombre': 'Zoraya', 'edad': 26}]
+>>> def mostrar_personas():
+...     for persona in personas:
+...         print(persona["nombre"], "-", persona["edad"], "años")
+...
+>>> mostrar_personas()
+Lila - 14 años
+Jose - 16 años
+Zoraya - 26 años
+>>> def agregar_persona():
+...     nombre = input("Nombre: ")
+...     edad = int(input("Edad: "))
+...     personas.append({"nombre": nombre, "edad": edad})
+...     print("Persona agregada")
+...
+>>> agregar_persona()
+Nombre: Camila
+Edad: 18
+Persona agregada
+>>> print(personas)
+[{'nombre': 'Lila', 'edad': 14}, {'nombre': 'Jose', 'edad': 16}, {'nombre': 'Zoraya', 'edad': 26}, {'nombre': 'Camila', 'edad': 18}]
+>>> def buscar_persona(nombre):
+...     for persona in personas:
+...         if persona["nombre"] == nombre:
+...             return persona
+...     return "Persona no encontrada"
+...
+>>> print(buscar_persona("Jose"))
+{'nombre': 'Jose', 'edad': 16}
+...     nombre = input("Nombre de la persona que quieres eliminar: ")
+...     for persona in personas:
+...         if persona["nombre"] == nombre:
+...             personas.remove(persona)
+...             print("Persona eliminada")
+...             return
+...     print("Persona no encontrada")
+...
+>>> eliminar_persona()
+Nombre de la persona que quieres eliminar: Camila
+Persona eliminada
+
