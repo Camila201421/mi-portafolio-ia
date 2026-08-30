@@ -725,4 +725,215 @@ Persona agregada
 >>> eliminar_persona()
 Nombre de la persona que quieres eliminar: Camila
 Persona eliminada
-
+>>> print("1. Mostrar personas")
+1. Mostrar personas
+>>> print("2. Agregar persona")
+2. Agregar persona
+>>> print("3. Buscar persona")
+3. Buscar persona
+>>> print("4. Eliminar persona")
+4. Eliminar persona
+>>> print("5. Salir")
+5. Salir
+>>> opcion = input("Elige una opción: ")
+Elige una opción: 1
+>>> if opcion == "1":
+...     mostrar_personas()
+...
+Lila - 14 años
+Jose - 16 años
+Zoraya - 26 años
+>>> opcion = input("Elige una opción: ")
+Elige una opción: 2
+>>> if opcion == "2":
+...     agregar_persona()
+...
+Nombre: Camila
+Edad: 18
+Persona agregada
+>>> print(personas)
+[{'nombre': 'Lila', 'edad': 14}, {'nombre': 'Jose', 'edad': 16}, {'nombre': 'Zoraya', 'edad': 26}, {'nombre': 'Camila', 'edad': 18}]
+>>> opcion = input("Elige una opción: ")
+Elige una opción: 3
+>>> nombre = input ("¿Qué persona quieres buscar? ")
+¿Qué persona quieres buscar? Zoraya
+>>> print(buscar_persona(nombre))
+{'nombre': 'Zoraya', 'edad': 26}
+>>> opcion = input("Elige una opción: ")
+Elige una opción: 4
+>>> if opcion == "4":
+...     eliminar_persona()
+...
+Nombre de la persona que quieres eliminar: Camila
+Persona eliminada
+>>> print(personas)
+[{'nombre': 'Lila', 'edad': 14}, {'nombre': 'Jose', 'edad': 16}, {'nombre': 'Zoraya', 'edad': 26}]
+>>> opcion = input("Elige una opción: ")
+Elige una opción: 5
+>>> if opcion == "5":
+...     print("¡Hasta luego!")
+...
+¡Hasta luego!
+>>> personas = [
+...     {"nombre": "Lila", "edad": 14},
+...     {"nombre": "Jose", "edad": 16},
+...     {"nombre": "Zoraya", "edad": 26}
+... ]
+>>> print(personas)
+[{'nombre': 'Lila', 'edad': 14}, {'nombre': 'Jose', 'edad': 16}, {'nombre': 'Zoraya', 'edad': 26}]
+>>> def mostar_personas():
+...     for persona in personas:
+...         print(persona["nombre"], "-", persona["edad"], "años")
+...
+>>> mostrar_personas()
+Lila - 14 años
+Jose - 16 años
+Zoraya - 26 años
+>>> while True:
+...     opcion = input("Elige una opción: ")
+...     if opcion == "1":
+...         mostrar_personas()
+...     if opcion == "5":
+...         print("¡Hasta luego!")
+...         break
+...
+1. Mostrar personas
+5. Salir
+Elige una opción: 1
+Lila - 14 años
+Jose - 16 años
+Zoraya - 26 años
+1. Mostrar personas
+5. Salir
+Elige una opción: 5
+¡Hasta luego!
+>>> def agregar_persona():
+...     nombre = input("Nombre: ")
+...     edad = int(input("Edad: "))
+...     personas.append({"nombre": nombre, "edad": edad})
+...     print("Persona egregada")
+...
+...         mostrar_personas()
+...     if opcion == "2":
+...         agregar_persona()
+...     if opcion == "5":
+...         print("¡Hasta luego!")
+...         break
+...
+1. Mostrar personas
+2. Agregar persona
+5. Salir
+Elige una opción: 2
+Nombre: Camila
+Edad: 18
+Persona egregada
+1. Mostrar personas
+2. Agregar persona
+5. Salir
+Elige una opción: 1
+Lila - 14 años
+Jose - 16 años
+Zoraya - 26 años
+Camila - 18 años
+1. Mostrar personas
+2. Agregar persona
+5. Salir
+Elige una opción: 5
+>>> def buscar_persona(nombre):
+...     for persona in personas:
+...         if persona["nombre"] == nombre:
+...             return persona
+...     return "Persona no encontrada"
+...
+>>> print(buscar_persona("Jose"))
+{'nombre': 'Jose', 'edad': 16}
+...     if opcion == "3":
+...         nombre = input ("¿Qué persona quieres buscar? ")
+...         print(buscar_persona(nombre))
+...     if opcion == "5":
+...         print("¡Hasta luego!")
+...         break
+...
+1. Mostrar personas
+2. Agregar persona
+3. Buscar persona
+5. Salir
+Elige una opción: 3
+¿Qué persona quieres buscar? Jose
+{'nombre': 'Jose', 'edad': 16}
+1. Mostrar personas
+2. Agregar persona
+3. Buscar persona
+5. Salir
+Elige una opción: 1
+Lila - 14 años
+Jose - 16 años
+Zoraya - 26 años
+Camila - 18 años
+1. Mostrar personas
+2. Agregar persona
+3. Buscar persona
+5. Salir
+Elige una opción: 5
+¡Hasta luego!
+>>> def eliminar_persona():
+...     nombre = input("Nombre de la persona que quieres eliminar: ")
+...
+...     for persona in personas:
+...         if persona["nombre"] == nombre:
+...             personas.remove(persona)
+...             print("Persona eliminada")
+...             return
+...
+...     print("Persona no encontrada")
+...
+>>>
+...         print(buscar_persona(nombre))
+...     if opcion == "4":
+...         eliminar_persona()
+...     if opcion == "5":
+...         print("¡Hasta luego!")
+...         break
+...
+1. Mostrar personas
+2. Agregar persona
+3. Buscar persona
+4. Eliminar persona
+5. Salir
+Elige una opción: 1
+Lila - 14 años
+Jose - 16 años
+Zoraya - 26 años
+Camila - 18 años
+1. Mostrar personas
+2. Agregar persona
+3. Buscar persona
+4. Eliminar persona
+5. Salir
+Elige una opción: 2
+Nombre: Lola
+Edad: 18
+Persona egregada
+1. Mostrar personas
+2. Agregar persona
+3. Buscar persona
+4. Eliminar persona
+5. Salir
+Elige una opción: 3
+¿Qué persona quieres buscar? Lola
+{'nombre': 'Lola', 'edad': 18}
+1. Mostrar personas
+2. Agregar persona
+3. Buscar persona
+4. Eliminar persona
+5. Salir
+Elige una opción: 4
+Nombre de la persona que quieres eliminar: Lola
+Persona eliminada
+1. Mostrar personas
+2. Agregar persona
+3. Buscar persona
+4. Eliminar persona
+5. Salir
+Elige una opción: 5
+¡Hasta luego!
