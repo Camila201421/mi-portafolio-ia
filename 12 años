@@ -986,3 +986,19 @@ Opción no válida
 5. Salir
 Elige una opción5
 ¡Hasta luego!
+
+>>> personas = [
+...     {"nombre": "Lila", "edad": 14},
+...     {"nombre": "Jose", "edad": 16},
+...     {"nombre": "Zoraya", "edad": 26}
+... ]
+>>>
+...     nombre_mayor = ""
+...     for persona in personas:
+...         if persona["edad"] > mayor:
+...             mayor = persona["edad"]
+...             nombre_mayor = persona["nombre"]
+...     return nombre_mayor
+...
+>>> print(mayor_edad())
+Zoraya
