@@ -1002,3 +1002,54 @@ Elige una opción5
 ...
 >>> print(mayor_edad())
 Zoraya
+>>> def mayor_edad():
+...     mayor = 0
+...     nombre_mayor = ""rsonas:
+...     for persona in personas: mayor:
+...         if persona["edad"] > mayor:
+...             mayor = persona["edad"]"nombre"]
+...             nombre_mayor = persona["nombre"]
+...     return nombre_mayor, mayor
+>>> print(mayor_edad())
+('Zoraya', 26)
+>>> nombre, edad = mayor_edad()
+>>> print("La persona mayor es", nombre, "y tiene", edad, "años")
+La persona mayor es Zoraya y tiene 26 años
+def menor_edad():
+    menor = 999
+    nombre_menor = ""
+
+    for persona in personas:
+        if persona["edad"] < menor:
+            menor = persona["edad"]
+            nombre_menor = persona["nombre"]
+
+    return nombre_menor, menor
+>>> print(menor_edad())
+('Lila', 14)
+>>> def promedio_edades():
+...     total = 0
+...     for persona in personas:
+...         total = total + persona["edad"]
+...     promedio = total / len(personas)
+...     return promedio
+Clase 22
+>>> def mayores_de_edad():
+...     cantidad = 0
+...     for persona in personas:
+...         if persona["edad"] >= 18:
+...             cantidad = cantidad + 1
+...             print(persona["nombre"], persona["edad"])
+...
+>>> mayores_de_edad()
+Zoraya 26
+...     cantidad = 0
+...     for persona in personas:
+...         if persona["edad"] >= 18:
+...             cantidad = cantidad + 1
+...             print(persona["nombre"], persona["edad"])
+...     return cantidad
+...
+>>> print(mayores_de_edad())
+Zoraya 26
+1
