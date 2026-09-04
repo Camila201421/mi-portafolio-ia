@@ -1053,3 +1053,27 @@ Zoraya 26
 >>> print(mayores_de_edad())
 Zoraya 26
 1
+Clase 23
+>>> def buscar_persona(nombre):
+...     for persona in personas:
+...         if persona["nombre"] == nombre:
+...             return persona
+...     return None
+...
+>>> resultado = buscar_persona("Zoraya")
+>>> print(resultado)
+{'nombre': 'Zoraya', 'edad': 26}
+>>> resultado = buscar_persona("Pedro")
+>>> print(resultado)
+None
+>>> nombre = input("¿Qué persona quieres buscar? ")
+¿Qué persona quieres buscar? Zoraya
+>>> resultado = buscar_persona(nombre)
+>>> if resultado:
+...     print("Encontrada:", resultado["nombre"])
+...     print("Edad:",  resultado["edad"])
+... else:
+...     print("Persona no encontrada")
+...
+Encontrada: Zoraya
+Edad: 26
