@@ -1077,3 +1077,168 @@ None
 ...
 Encontrada: Zoraya
 Edad: 26
+Clase 24
+>>> def cambiar_edad(nombre, nueva_edad):
+...     for persona in personas:
+...         if persona["nombre"] == nombre:
+...             persona["edad"] = nueva_edad
+...             return True
+...     return False
+>>> resultado = cambiar_edad("Lila", 15)
+>>> print(resultado)
+True
+>>> print(buscar_persona("Lila"))
+{'nombre': 'Lila', 'edad': 15}
+>>> def eliminar_persona(nombre):
+...     for persona in personas:
+...         if persona["nombre"] == nombre:
+...             personas.remove(persona)
+...             return True
+...     return False
+...
+>>> print(eliminar_persona("Jose"))
+True
+>>> print(personas)
+[{'nombre': 'Lila', 'edad': 15}, {'nombre': 'Zoraya', 'edad': 26}]
+>>> def existe_persona(nombre):
+...     for persona in personas:
+...         if persona["nombre"] == nombre:
+...             return True
+...     return False
+...
+>>> print(existe_persona("Lila"))
+True
+>>> print(existe_persona("Carlos"))
+False
+>>> print(existe_persona("Zoraya"))
+Clase 25
+while True:
+    print("--- AGENDA ---")
+    print("1. Mostrar personas")
+    print("2. Agregar persona")
+    print("3. Buscar persona")
+    print("4. Eliminar persona")
+    print("5. Cambiar edad")
+    print("6. Contar personas")
+    print("7. Salir")
+
+    opcion = input("Elige una opción: ")
+
+    if opcion == "1":
+        mostrar_personas()
+
+    elif opcion == "2":
+        agregar_persona()
+
+    elif opcion == "3":
+        nombre = input("Nombre: ")
+        resultado = buscar_persona(nombre)
+
+        if resultado:
+            print(resultado)
+        else:
+            print("Persona no encontrada")
+
+    elif opcion == "4":
+        nombre = input("Nombre: ")
+
+        if eliminar_persona(nombre):
+            print("Persona eliminada")
+        else:
+            print("Persona no encontrada")
+
+    elif opcion == "5":
+        nombre = input("Nombre: ")
+        edad = int(input("Nueva edad: "))
+
+        if cambiar_edad(nombre, edad):
+            print("Edad cambiada")
+        else:
+            print("Persona no encontrada")
+
+    elif opcion == "6":
+        print("Tenemos", contar_personas(), "personas")
+
+    elif opcion == "7":
+        print("¡Hasta luego!")
+        break
+
+    else:
+        print("Opción no válida")
+--- AGENDA ---
+1. Mostrar personas
+2. Agregar persona
+3. Buscar persona
+4. Eliminar persona
+5. Cambiar edad
+6. Contar personas
+7. Salir
+Elige una opción: 1
+Lila 15
+Zoraya 26
+--- AGENDA ---
+1. Mostrar personas
+2. Agregar persona
+3. Buscar persona
+4. Eliminar persona
+5. Cambiar edad
+6. Contar personas
+7. Salir
+Elige una opción: 2
+Nombre: Jose
+Edad: 16
+Persona agregada
+--- AGENDA ---
+1. Mostrar personas
+2. Agregar persona
+3. Buscar persona
+4. Eliminar persona
+5. Cambiar edad
+6. Contar personas
+7. Salir
+Elige una opción: 3
+Nombre: Camila
+Persona no encontrada
+--- AGENDA ---
+1. Mostrar personas
+2. Agregar persona
+3. Buscar persona
+4. Eliminar persona
+5. Cambiar edad
+6. Contar personas
+7. Salir
+Elige una opción: 4
+Nombre: Carlos
+Persona no encontrada
+--- AGENDA ---
+1. Mostrar personas
+2. Agregar persona
+3. Buscar persona
+4. Eliminar persona
+5. Cambiar edad
+6. Contar personas
+7. Salir
+Elige una opción: 5
+Nombre: Lila
+Nueva edad: 10
+Edad cambiada
+--- AGENDA ---
+1. Mostrar personas
+2. Agregar persona
+3. Buscar persona
+4. Eliminar persona
+5. Cambiar edad
+6. Contar personas
+7. Salir
+Elige una opción: 6
+Tenemos 3 personas
+--- AGENDA ---
+1. Mostrar personas
+2. Agregar persona
+3. Buscar persona
+4. Eliminar persona
+5. Cambiar edad
+6. Contar personas
+7. Salir
+Elige una opción: 7
+¡Hasta luego!
