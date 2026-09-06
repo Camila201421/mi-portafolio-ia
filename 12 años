@@ -1242,3 +1242,189 @@ Tenemos 3 personas
 7. Salir
 Elige una opción: 7
 ¡Hasta luego!
+Clase 26
+>>> archivo = open("agenda.txt", "w")
+>>> archivo.write("Mi agenda de Python")
+19
+>>> archivo.close()
+>>> archivo = open("agenda.txt", "r")
+>>> contenido = archivo.read()
+>>> archivo.close()
+>>> print(contenido)
+Mi agenda de Python
+>>>
+>>> archivo = open("agenda.txt", "w")
+>>> for persona in personas:
+...     archivo.write(persona["nombre"] + "-" + str(persona["edad"]) + "\n")
+... archivo.close()
+...
+>>> archivo =open("agenda.txt", "r")
+>>> contenido = archivo.read()
+>>> archivo.close()
+>>> print(contenido)
+Lila-10
+Zoraya-26
+Jose-16
+>>> archivo = open("agenda.txt", "r")
+>>> contenido = archivo.read()
+>>> archivo.close()
+>>> print(contenido)
+Lila-10
+Zoraya-26
+Jose-16
+>>> def guardar_agenda():
+...     archivo = open("agenda.txt", "w")
+...     for persona in personas:
+...         archivo.write(persona["nombre"] + "-" + str(persona["edad"]) + "\n")
+...     archivo.close()
+...     print("Agenda guardada")
+...
+>>> guardar_agenda()
+Agenda guardada
+>>> def agregar_persona():
+...     nombre = input("Nombre: ")
+...     while True:
+...         try:
+...             edad = int(input("Edad: "))
+...             break
+...         except:
+...             print("Escribe un número")
+...     personas-append({"nombre": nombre, "edad": edad})
+...     guardar_agenda()
+...     print("Persona agregada")
+>>> def eliminar_persona(nombre):
+...     for persona in personas:
+...         if persona["nombre"] == nombre:
+...             personas.remove(persona)
+...             guardar_agenda()
+...             return True
+...     return False
+>>> def cambiar_edad(nombre, nueva_edad):
+...     for persona in personas:
+...         if persona["nombre"] == nombre:
+...             persona["edad"] = nueva_edad
+...             guardar_agenda()
+...             return True
+...     return False
+>>> personas = [
+...     {"nombre": "Lila", "edad": 14},
+...     {"nombre": "Zoraya", "edad": 26},
+...     {"nombre": "Ana", "edad": 20}
+... ]
+...
+...     for persona in personas:
+...         archivo.write(persona["nombre"] + "-" + str(persona["edad"]) + "\n")
+...
+...     archivo.close()
+...     print("Agenda guardada")
+...
+>>> guardar_agenda()
+Agenda guardada
+>>> archivo = open("agenda.txt", "r")
+... contenido = archivo.read()
+... archivo.close()
+...
+... print(contenido)
+...
+Lila-14
+Zoraya-26
+Ana-20
+>>> def agregar_persona():
+...     nombre = input("Nombre: ")
+...
+...     while True:
+...         try:
+...             edad = int(input("Edad: "))
+...             break
+...         except:
+...             print("Escribe un número")
+...
+...     personas.append({"nombre": nombre, "edad": edad})
+...     guardar_agenda()
+...     print("Persona agregada")
+>>> agregar_persona()
+Nombre: Camila
+Edad: 10
+Agenda guardada
+Persona agregada
+>>> archivo = open("agenda.txt", "r")
+... contenido = archivo.read()
+... archivo.close()
+...
+... print(contenido)
+...
+Lila-14
+Zoraya-26
+Ana-20
+Camila-10
+>>> def eliminar_persona(nombre):
+...     for persona in personas:
+...         if persona["nombre"] == nombre:
+...             personas.remove(persona)
+...             guardar_agenda()
+...             return True
+...
+...     return False
+...
+>>> eliminar_persona("Carlos")
+False
+>>> eliminar_persona("Camila")
+Agenda guardada
+True
+>>> archivo = open("agenda.txt", "r")
+... contenido = archivo.read()
+... archivo.close()
+...
+... print(contenido)
+...
+Lila-14
+Zoraya-26
+Ana-20
+>>> def cambiar_edad(nombre, nueva_edad):
+...     for persona in personas:
+...         if persona["nombre"] == nombre:
+...             persona["edad"] = nueva_edad
+...             guardar_agenda()
+...             return True
+...
+...     return False
+>>> cambiar_edad("Ana", 25)>>> def cargar_agenda():
+...     personas = []
+...
+...     try:
+...         archivo = open("agenda.txt", "r")
+...
+...         for linea in archivo:
+...             linea = linea.strip()
+...
+...             if linea != "":
+...                 datos = linea.split("-")
+...                 nombre = datos[0]
+...                 edad = int(datos[1])
+...
+...                 personas.append({
+...                     "nombre": nombre,
+...                     "edad": edad
+...                 })
+...
+...         archivo.close()
+...
+...     except:
+...         print("No existe una agenda guardada")
+...
+...     return personas
+>>> personas = cargar_agenda()
+>>> print(personas)
+[{'nombre': 'Lila', 'edad': 14}, {'nombre': 'Zoraya', 'edad': 26}, {'nombre': 'Ana', 'edad': 25}]
+Agenda guardada
+
+True
+>>> archivo = open("agenda.txt", "r")
+... contenido = archivo.read()
+... archivo.close()
+...
+... print(contenido)
+...
+Lila-14
+Zoraya-26
+Ana-25
