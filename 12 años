@@ -1428,3 +1428,424 @@ True
 Lila-14
 Zoraya-26
 Ana-25
+Clase 27
+>>> personas = []
+...     archivo = open("agenda.txt", "w")
+...     for persona in personas:
+...         archivo.write(
+...             persona["nombre"] + "-" + str(persona["edad"]) + "\n"
+...         )
+...     archivo.close()
+...
+>>> def cargar_agenda():
+...     personas_cargadas = []
+...     try:
+...         archivo = open("agenda.txt", "r")
+...         for linea in archivo:
+...             linea = linea.strip()
+...             if linea != "":
+
+...                     "edad": edad
+...                 })
+...         archivo.close
+...     except:
+...         print("No existe una agenda guardada.")
+...     return personas_cargadas
+...
+>>> def mostrar_personas():
+...     if len(personas) == 0:
+...         print("La agenda está vacía.")
+...         return
+...     for persona in personas:
+...         print(persona["nombre"], "-", persona["edad"], "años")
+...
+>>> def agregar_persona():
+...     nombre = input("Nombre: ")
+...     while True:
+...         try:
+...             edad = int(input("Edad: "))
+...             break
+...         except:
+...             print("Escribe un número.")
+...     personas. append({
+...         "nombre": nombre,
+...         "edad": edad
+...     })
+...     guardar_agenda()
+...     print("Persona agregada.")
+...
+>>> def buscar_persona(nombre):
+...     for persona in personas:
+...         if persona["nombre"].lower() == nombre.lower():
+...             return persona
+...     return None
+...
+>>> def eliminar_persona(nombre):
+···    for persona in personas:
+···        if persona["nombre"].lower() == nombre.lower():
+···            personas.remove(persona)
+···            guardar_agenda()
+···            return True
+···
+···    return False
+>>> def cambiar_edad(nombre, nueva_edad):
+...     for persona in personas:
+...         if persona["nombre"].lower() == nombre.lower():
+...             persona["edad"] = nueva_edad
+...             guardar_agenda()
+...             return True
+...     return False
+...
+>>> def contar_personas():
+...     return len(personas)
+...
+>>> def mayor_edad():
+...     if len(personas) == 0:
+...         return None
+...     mayor = personas[0]
+...     for persona in personas:
+...         if persona["edad"] > mayor["edad"]:
+...             mayor = persona
+...     return mayor
+...
+>>> def menor_edad():
+...     if len(personas) == 0:
+...         return None
+...     menor = personas[0]
+...     for persona in personas:
+...         if persona["edad"] < menor["edad"]:
+...             menor = persona
+...     return menor
+...
+def promedio_edades():
+    if len(personas) == 0:
+        return 0
+
+    total = 0
+
+    for persona in personas:
+        total = total + persona["edad"]
+
+    return total / len(personas)
+
+
+personas = cargar_agenda()
+
+
+while True:
+
+    print()
+    print("========== AGENDA ==========")
+    print("1. Mostrar personas")
+    print("2. Agregar persona")
+    print("3. Buscar persona")
+    print("4. Eliminar persona")
+    print("5. Cambiar edad")
+    print("6. Contar personas")
+    print("7. Persona mayor")
+    print("8. Persona menor")
+    print("9. Promedio de edades")
+    print("10. Salir")
+    print("============================")
+
+    opcion = input("Elige una opción: ")
+
+    if opcion == "1":
+        mostrar_personas()
+
+    elif opcion == "2":
+        agregar_persona()
+
+    elif opcion == "3":
+        nombre = input("Nombre: ")
+
+        resultado = buscar_persona(nombre)
+
+        if resultado:
+            print(
+                "Encontrada:",
+                resultado["nombre"],
+                resultado["edad"],
+                "años"
+            )
+        else:
+            print("Persona no encontrada.")
+
+    elif opcion == "4":
+        nombre = input("Nombre: ")
+
+        if eliminar_persona(nombre):
+            print("Persona eliminada.")
+        else:
+            print("Persona no encontrada.")
+
+    elif opcion == "5":
+        nombre = input("Nombre: ")
+
+        while True:
+            try:
+                nueva_edad = int(input("Nueva edad: "))
+                break
+            except:
+                print("Escribe un número.")
+
+        if cambiar_edad(nombre, nueva_edad):
+            print("Edad cambiada.")
+        else:
+            print("Persona no encontrada.")
+
+    elif opcion == "6":
+        print("Hay", contar_personas(), "personas.")
+
+    elif opcion == "7":
+        resultado = mayor_edad()
+
+        if resultado:
+            print(
+                "La persona mayor es",
+                resultado["nombre"],
+                "con",
+                resultado["edad"],
+                "años."
+            )
+        else:
+            print("La agenda está vacía.")
+
+    elif opcion == "8":
+        resultado = menor_edad()
+
+        if resultado:
+            print(
+                "La persona menor es",
+                resultado["nombre"],
+                "con",
+                resultado["edad"],
+                "años."
+            )
+        else:
+            print("La agenda está vacía.")
+
+    elif opcion == "9":
+        print("Promedio de edad:", promedio_edades())
+
+    elif opcion == "10":
+        guardar_agenda()
+        print("Agenda guardada. ¡Hasta luego!")
+        break
+
+    else:
+        print("Opción no válida.")
+========== AGENDA ==========
+1. Mostrar personas
+2. Agregar persona
+3. Buscar persona
+4. Eliminar persona
+5. Cambiar edad
+6. Contar personas
+7. Persona mayor
+8. Persona menor
+9. Promedio de edades
+10. Salir
+============================
+Elige una opción: 1
+Lila - 14 años
+Zoraya - 26 años
+Ana - 25 años
+Jose - 16 años
+Camila - 10 años
+
+========== AGENDA ==========
+1. Mostrar personas
+2. Agregar persona
+3. Buscar persona
+4. Eliminar persona
+5. Cambiar edad
+6. Contar personas
+7. Persona mayor
+8. Persona menor
+9. Promedio de edades
+10. Salir
+============================
+Elige una opción: 2
+Nombre: Pedro
+Edad: 43
+Persona agregada.
+
+========== AGENDA ==========
+1. Mostrar personas
+2. Agregar persona
+3. Buscar persona
+4. Eliminar persona
+5. Cambiar edad
+6. Contar personas
+7. Persona mayor
+8. Persona menor
+9. Promedio de edades
+10. Salir
+============================
+Elige una opción: 1
+Lila - 14 años
+Zoraya - 26 años
+Ana - 25 años
+Jose - 16 años
+Camila - 10 años
+Pedro - 43 años
+
+========== AGENDA ==========
+1. Mostrar personas
+2. Agregar persona
+3. Buscar persona
+4. Eliminar persona
+5. Cambiar edad
+6. Contar personas
+7. Persona mayor
+8. Persona menor
+9. Promedio de edades
+10. Salir
+============================
+Elige una opción: 3
+Nombre: Camila
+Encontrada: Camila 10 años
+
+========== AGENDA ==========
+1. Mostrar personas
+2. Agregar persona
+3. Buscar persona
+4. Eliminar persona
+5. Cambiar edad
+6. Contar personas
+7. Persona mayor
+8. Persona menor
+9. Promedio de edades
+10. Salir
+============================
+Elige una opción: 4
+Nombre: Ana
+Persona eliminada.
+
+========== AGENDA ==========
+1. Mostrar personas
+2. Agregar persona
+3. Buscar persona
+4. Eliminar persona
+5. Cambiar edad
+6. Contar personas
+7. Persona mayor
+8. Persona menor
+9. Promedio de edades
+10. Salir
+============================
+Elige una opción: 1
+Lila - 14 años
+Zoraya - 26 años
+Jose - 16 años
+Camila - 10 años
+Pedro - 43 años
+
+========== AGENDA ==========
+1. Mostrar personas
+2. Agregar persona
+3. Buscar persona
+4. Eliminar persona
+5. Cambiar edad
+6. Contar personas
+7. Persona mayor
+8. Persona menor
+9. Promedio de edades
+10. Salir
+============================
+Elige una opción: 5
+Nombre: Camila
+Nueva edad: 11
+Edad cambiada.
+
+========== AGENDA ==========
+1. Mostrar personas
+2. Agregar persona
+3. Buscar persona
+4. Eliminar persona
+5. Cambiar edad
+6. Contar personas
+7. Persona mayor
+8. Persona menor
+9. Promedio de edades
+10. Salir
+============================
+Elige una opción: 6
+Hay 5 personas.
+
+========== AGENDA ==========
+1. Mostrar personas
+2. Agregar persona
+3. Buscar persona
+4. Eliminar persona
+5. Cambiar edad
+6. Contar personas
+7. Persona mayor
+8. Persona menor
+9. Promedio de edades
+10. Salir
+============================
+Elige una opción: 7
+La persona mayor es Pedro con 43 años.
+
+========== AGENDA ==========
+1. Mostrar personas
+2. Agregar persona
+3. Buscar persona
+4. Eliminar persona
+5. Cambiar edad
+6. Contar personas
+7. Persona mayor
+8. Persona menor
+9. Promedio de edades
+10. Salir
+============================
+Elige una opción: 8
+La persona menor es Camila años.
+
+========== AGENDA ==========
+1. Mostrar personas
+2. Agregar persona
+3. Buscar persona
+4. Eliminar persona
+5. Cambiar edad
+6. Contar personas
+7. Persona mayor
+8. Persona menor
+9. Promedio de edades
+10. Salir
+============================
+Elige una opción: 9
+Promedio de edad: 22.0
+
+========== AGENDA ==========
+1. Mostrar personas
+2. Agregar persona
+3. Buscar persona
+4. Eliminar persona
+5. Cambiar edad
+6. Contar personas
+7. Persona mayor
+8. Persona menor
+9. Promedio de edades
+10. Salir
+============================
+Elige una opción: 19
+Opción no válida.
+
+========== AGENDA ==========
+1. Mostrar personas
+2. Agregar persona
+3. Buscar persona
+4. Eliminar persona
+5. Cambiar edad
+6. Contar personas
+7. Persona mayor
+8. Persona menor
+9. Promedio de edades
+10. Salir
+============================
+Elige una opción: 10
+Agenda guardada. ¡Hasta luego!
+Clase 28
