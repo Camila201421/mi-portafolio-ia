@@ -2246,3 +2246,36 @@ El promedio de edad es 22.6
 ============================
 Elige una opción: 10
 ¡Hasta luego
+Clase 29
+>>> personas = [
+...     {
+...         "nombre": "Lila",
+...         "nombre": 14,
+...         "profesion": "Cocinera",
+...         "telefono": "655567392"
+...     },
+...     {
+...         "nombre": "Jose",
+...         "edad": 17,
+...         "profesion": "Youtuber",
+...         "telefono": "676767676"
+...     },
+...     {
+...         "nombre": "Zoraya",
+...         "edad": 26,
+...         "profesion": "Emfermera",
+...         "telefono": "614355763"
+...     },
+...     {
+...         "nombre": "Pedro",
+...         "edad": 23,
+...         "profesion": "Camillero",
+...         "telefono": "668554514"
+...     },
+...     {
+...         "nombre": "Camila",
+...         "edad": 12,
+...         "profesion": "Estudiante",
+...         "telefono": "784204152"
+...     }
+... ]
