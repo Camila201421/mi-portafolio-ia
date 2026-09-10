@@ -2279,3 +2279,387 @@ Clase 29
 ...         "telefono": "784204152"
 ...     }
 ... ]
+>>> import json
+>>> def guardar_agenda():
+...     archivo = open("agenda.json", "w")
+...     json.dump(personas, archivo, indent=4)
+...     print("Agenda guardada")
+...
+>>> guardar_agenda()
+Agenda guardada
+>>> def cargar_agenda():
+...     try:
+...         archivo = open("agenda.json", "r")
+...         personas = json.load(archivo)
+...         archivo.close()
+...         return personas
+...     except:
+...         print("No existe un agenda guardada")
+...         return[]
+...
+>>> personas = cargar_agenda()
+>>> print(personas)
+[{'nombre': 14, 'profesion': 'Cocinera', 'telefono': '655567392'}, {'nombre': 'Jose', 'edad': 17, 'profesion': 'Youtuber', 'telefono': '676767676'}, {'nombre': 'Zoraya', 'edad': 26, 'profesion': 'Emfermera', 'telefono': '614355763'}, {'nombre': 'Pedro', 'edad': 23, 'profesion': 'Camillero', 'telefono': '668554514'}, {'nombre': 'Camila', 'edad': 12, 'profesion': 'Estudiante', 'telefono': '784204152'}]
+>>> def agregar_persona():
+...     nombre = input("Nombre: ")
+...     while True:
+...         try:
+...             edad = int(input("Edad: "))
+...             break
+...         except:
+...             print("Escribe un número")
+...     profesion = input("Profesión: ")
+...     telefono = input("Teléfono: ")
+...     personas.append({
+...         "nombre": nombre,
+...         "edad": edad,
+...         "profesion": profesion,
+...         "telefono": telefono
+...     })
+...     guardar_agenda()
+...     print("Persona agregada")
+...
+>>> agregar_persona()
+Nombre: Jairoalonzo
+Edad: 67
+Profesión: Transportista
+Teléfono: 294648573
+Agenda guardada
+Persona agregada
+>>> print(personas)
+[{'nombre': 14, 'profesion': 'Cocinera', 'telefono': '655567392'}, {'nombre': 'Jose', 'edad': 17, 'profesion': 'Youtuber', 'telefono': '676767676'}, {'nombre': 'Zoraya', 'edad': 26, 'profesion': 'Emfermera', 'telefono': '614355763'}, {'nombre': 'Pedro', 'edad': 23, 'profesion': 'Camillero', 'telefono': '668554514'}, {'nombre': 'Camila', 'edad': 12, 'profesion': 'Estudiante', 'telefono': '784204152'}, {'nombre': 'Jairoalonzo', 'edad': 67, 'profesion': 'Transportista', 'telefono': '294648573'}]
+>>> def mostrar_personas():
+...     for persona in personas:
+...         print("__________________")
+...         print("Nombre:", persona["nombre"])
+...         print("Edad:", persona["edad"])
+...         print("Profesión:", persona["profesion\
+"])
+...         print("Teléfono:", persona["telefono"]\
+)
+...     print("____________________")
+...
+>>> personas[0] = {
+...     "nombre": "lila",
+...     "edad": 14,
+...     "profesion": "Cocinera",
+...     "telefono": "655567392"
+... }
+>>> guardar_agenda()
+Agenda guardada
+>>> mostrar_personas()
+__________________
+Nombre: lila
+Edad: 14
+Profesión: Cocinera
+Teléfono: 655567392
+__________________
+Nombre: Jose
+Edad: 17
+Profesión: Youtuber
+Teléfono: 676767676
+__________________
+Nombre: Zoraya
+Edad: 26
+Profesión: Emfermera
+Teléfono: 614355763
+__________________
+Nombre: Pedro
+Edad: 23
+Profesión: Camillero
+Teléfono: 668554514
+__________________
+Nombre: Camila
+Edad: 12
+Profesión: Estudiante
+Teléfono: 784204152
+__________________
+Nombre: Jairoalonzo
+Edad: 67
+Profesión: Transportista
+Teléfono: 294648573
+____________________
+>>> def buscar_persona(nombre):
+...     for persona in personas:
+...         if persona["nombre"].lower() == nombre\
+.lower():
+...             print("____________________")
+...             print("Nombre:", persona["nombre"]\
+)
+...             print("Edad:", persona["edad"])
+...             print("Profesion:", persona["profe\
+sion"])
+...             print("Teléfono:", persona["telefo\
+no"])
+...             print("____________________")
+...             return persona
+...     return None
+...
+>>> buscar_persona("Lila")
+____________________
+Nombre: lila
+Edad: 14
+Profesion: Cocinera
+Teléfono: 655567392
+____________________
+{'nombre': 'lila', 'edad': 14, 'profesion': 'Cocinera', 'telefono': '655567392'}
+>>> def eliminar_persona(nombre):
+...     for persona in personas:
+...         if persona["nombre"].lower() == nombre\
+.lower():
+...             personas.remove(persona)
+...             guardar_agenda()
+...             return True
+...
+...     return False
+...
+>>> def cambiar_edad(nombre, nueva_edad):
+...     for persona in personas:
+...         if persona["nombre"].lower() == nombre\
+.lower():
+...             persona["edad"] = nueva_edad
+...             guardar_agenda()
+...             return True
+...
+...     return False
+...
+>>> def contar_personas():
+...     return len(personas)
+...
+>>> def mayor_edad():
+...     mayor = 0
+...     nombre_mayor = ""
+...
+...     for persona in personas:
+...         if persona["edad"] > mayor:
+...             mayor = persona["edad"]
+...             nombre_mayor = persona["nombre"]
+...
+...     return nombre_mayor, mayor
+...
+>>> def menor_edad():
+...     menor = 999
+...     nombre_menor = ""
+...
+...     for persona in personas:
+...         if persona["edad"] < menor:
+...             menor = persona["edad"]
+...             nombre_menor = persona["nombre"]
+...
+...     return nombre_menor, menor
+...
+>>> def promedio_edades():
+...     if len(personas) == 0:
+...         return 0
+...
+...     total = 0
+...
+...     for persona in personas:
+...         total = total + persona["edad"]
+...
+...     return total / len(personas)
+...
+while True:
+
+    print()
+    print("========== AGENDA ==========")
+    print("1. Mostrar personas")
+    print("2. Agregar persona")
+    print("3. Buscar persona")
+    print("4. Eliminar persona")
+    print("5. Cambiar edad")
+    print("6. Contar personas")
+    print("7. Persona mayor")
+    print("8. Persona menor")
+    print("9. Promedio de edades")
+    print("10. Salir")
+    print("============================")
+
+    opcion = input("Elige una opción: ")
+
+    if opcion == "1":
+        mostrar_personas()
+
+    elif opcion == "2":
+        agregar_persona()
+
+    elif opcion == "3":
+        nombre = input("Nombre: ")
+        buscar_persona(nombre)
+
+    elif opcion == "4":
+        nombre = input("Nombre: ")
+
+        if eliminar_persona(nombre):
+            print("Persona eliminada")
+        else:
+            print("Persona no encontrada")
+
+    elif opcion == "5":
+        nombre = input("Nombre: ")
+
+        try:
+            edad = int(input("Nueva edad: "))
+
+            if cambiar_edad(nombre, edad):
+                print("Edad cambiada")
+            else:
+                print("Persona no encontrada")
+
+        except:
+            print("La edad debe ser un número")
+
+    elif opcion == "6":
+        print("Tenemos", contar_personas(), "personas")
+
+    elif opcion == "7":
+        nombre, edad = mayor_edad()
+        print("La persona mayor es", nombre, "y tiene", edad, "años")
+
+    elif opcion == "8":
+        nombre, edad = menor_edad()
+        print("La persona menor es", nombre, "y tiene", edad, "años")
+
+    elif opcion == "9":
+        print("El promedio de edad es", promedio_edades())
+
+    elif opcion == "10":
+        print("¡Hasta luego!")
+        break
+
+    else:
+        print("Opción no válida")
+========== AGENDA ==========
+1. Mostrar personas
+2. Agregar persona
+3. Buscar persona
+4. Eliminar persona
+5. Cambiar edad
+6. Contar personas
+7. Persona mayor
+8. Persona menor
+9. Promedio de edades
+10. Salir
+============================
+Elige una opción: 1
+__________________
+Nombre: lila
+Edad: 14
+Profesión: Cocinera
+Teléfono: 655567392
+Nombre: Lila
+____________________
+Nombre: lila
+Edad: 14
+Profesion: Cocinera
+Teléfono: 655567392
+____________________
+{'nombre': 'lila', 'edad': 14, 'profesion': 'Cocinera', 'telefono': '655567392'}
+
+========== AGENDA ==========
+1. Mostrar personas
+2. Agregar persona
+3. Buscar persona
+4. Eliminar persona
+5. Cambiar edad
+6. Contar personas
+7. Persona mayor
+8. Persona menor
+9. Promedio de edades
+10. Salir
+============================
+Elige una opción: 5
+Nombre: Camila
+Nueva edad: 13
+Agenda guardada
+Edad cambiada
+
+========== AGENDA ==========
+1. Mostrar personas
+2. Agregar persona
+3. Buscar persona
+4. Eliminar persona
+5. Cambiar edad
+6. Contar personas
+7. Persona mayor
+8. Persona menor
+9. Promedio de edades
+10. Salir
+============================
+Elige una opción: 6
+Tenemos 6 personas
+
+========== AGENDA ==========
+1. Mostrar personas
+2. Agregar persona
+3. Buscar persona
+4. Eliminar persona
+5. Cambiar edad
+6. Contar personas
+7. Persona mayor
+8. Persona menor
+9. Promedio de edades
+10. Salir
+============================
+Elige una opción: 7
+La persona mayor es Jairoalonzo y tiene 67 años
+
+========== AGENDA ==========
+1. Mostrar personas
+2. Agregar persona
+3. Buscar persona
+4. Eliminar persona
+5. Cambiar edad
+6. Contar personas
+7. Persona mayor
+8. Persona menor
+9. Promedio de edades
+10. Salir
+============================
+Elige una opción: 8
+La persona menor es Camila y tiene 13 años
+
+========== AGENDA ==========
+1. Mostrar personas
+2. Agregar persona
+3. Buscar persona
+4. Eliminar persona
+5. Cambiar edad
+6. Contar personas
+7. Persona mayor
+8. Persona menor
+9. Promedio de edades
+10. Salir
+============================
+Elige una opción: 9
+El promedio de edad es 26.666666666666668
+
+========== AGENDA ==========
+1. Mostrar personas
+2. Agregar persona
+3. Buscar persona
+4. Eliminar persona
+5. Cambiar edad
+6. Contar personas
+7. Persona mayor
+8. Persona menor
+9. Promedio de edades
+10. Salir
+============================
+Elige una opción: 18
+Opción no válida
+
+========== AGENDA ==========
+1. Mostrar personas
+2. Agregar persona
+3. Buscar persona
+4. Eliminar persona
+5. Cambiar edad
+6. Contar personas
+7. Persona mayor
+8. Persona menor
+9. Promedio de edades
+10. Salir
+============================
+Elige una opción: 10
+¡Hasta luego!
