@@ -2663,3 +2663,188 @@ Opción no válida
 ============================
 Elige una opción: 10
 ¡Hasta luego!
+Clase 30
+>>> def clasificar_edad(edad):
+...     if edad < 13:
+...         return "Niño"
+...     elif edad < 18:
+...         return "Adolecente"
+...     elif edad < 65:
+...         return "Adulto"
+...     else:
+...         return "Adulto mayor"
+... edad = int(input("¿Qué edad tienes? "))
+... resultado = clasificar_edad(edad)
+... print("Resultado:", resultado)
+...
+¿Qué edad tienes? 12
+Resultado: Niño
+>>> clasificar_edad
+<function clasificar_edad at 0x000002134D7AA2A0>
+>>> clasificar_edad(21)
+'Adulto'
+>>> clasificar_edad(67)
+'Adulto mayor'
+>>> clasificar_edad(15)
+'Adolecente'
+>>> def clasificar_edad(edad):
+...     if edad < 6:
+...         return "Bebé"
+...     elif edad < 13:
+...         return "Niño"
+...     elif edad < 18:
+...         return "Adolecente"
+...     elif edad < 65:
+...         return "Adulto"
+...     else:
+...         return "Adulto mayor"
+... edad = int(input("¿Qué edad tienes? "))
+... resultado = clasificar_edad(edad)
+... print("Resultado:", resultado)
+...
+¿Qué edad tienes? 3
+Resultado: Bebé
+>>> clasificar_edad(10)
+'Niño'
+>>> clasificar_edad(15)
+'Adolecente'
+>>> clasificar_edad(40)
+'Adulto'
+>>> clasificar_edad(70)
+'Adulto mayor'
+>>> edades = [4, 8, 13, 17, 25, 42, 70]
+>>> for edad in edades:
+...     resultado = clasificar_edad(edad)
+...     print(edad, "años →", resultado)
+...
+4 años → Bebé
+8 años → Niño
+13 años → Adolecente
+17 años → Adolecente
+25 años → Adulto
+42 años → Adulto
+70 años → Adulto mayor
+>>> edades = []
+>>> for i in range(5):
+...     edad = int(input("Escribe una edad: "))
+...     edades.append(edad)
+... for edad in edades:
+...     resultado = clasificar_edad(edad)
+...     print(edad, "años →", resultado)
+...
+Escribe una edad: 15
+Escribe una edad: 18
+Escribe una edad: 47
+Escribe una edad: 67
+Escribe una edad: 4
+15 años → Adolecente
+18 años → Adulto
+47 años → Adulto
+67 años → Adulto mayor
+4 años → Bebé
+>>> edades = [4, 8, 12, 15, 20, 30, 70]
+>>> bebes = 0
+>>> ninos = 0
+>>> adolescentes = 0
+>>> adultos = 0
+>>> adultos_mayores = 0
+>>> for edad in edades:
+...     if edad < 6:
+...         bebes = bebes + 1
+...     elif edad < 13:
+...         ninos = ninos + 1
+...     elif edad < 18:
+...         adolescentes = adolescentes + 1
+...     elif edad < 65:
+...         adultos = adultos + 1
+...     else:
+...         adultos_mayores = adultos_mayores + 1
+... print("Bebés:", bebes)
+... print("Niñós:", ninos)
+... print("Adolescentes:", adolescentes)
+... print("Adultos:", adultos)
+... print("Adultos mayores:", adultos_mayores)
+...
+Bebés: 1
+Niñós: 2
+Adolescentes: 1
+Adultos: 2
+Adultos mayores: 1
+>>> edades = []
+>>> cantidad = int(input("¿Cuántas edades quieres \
+introducir? "))
+>>> for edad in edades:
+...     categoria = clasificar_edad(edad)
+...     print(edad, "años →", categoria)
+...
+25 años → Adulto
+89 años → Adulto mayor
+13 años → Adolecente
+74 años → Adulto mayor
+855 años → Adulto mayor
+123456789098765432 años → Adulto mayor
+10 años → Niño
+23 años → Adulto
+>>> bebes = 0
+>>> ninos = 0
+>>> adolescentes = 0
+>>> adultos = 0
+>>> adultos_mayores = 0
+>>> for edad in edades:
+...
+...     categoria = clasificar_edad(edad)
+...
+...     if categoria == "Bebé":
+...         bebes += 1
+...
+...     elif categoria == "Niño":
+...         ninos += 1
+...
+...     elif categoria == "Adolescente":
+...         adolescentes += 1
+...
+...     elif categoria == "Adulto":
+...         adultos += 1
+...
+...     else:
+...         adultos_mayores += 1
+...
+... print("Bebés:", bebes)
+... print("Niños:", ninos)
+... print("Adolescentes:", adolescentes)
+... print("Adultos:", adultos)
+... print("Adultos mayores:", adultos_mayores)
+...
+Bebés: 0
+Niños: 1
+Adolescentes: 0
+Adultos: 2
+Adultos mayores: 5
+>>> edades = [4, 8, 12, 15, 20, 30, 70]
+>>> for edad in edades:
+...     categoria = clasificar_edad(edad)
+...     print("Edad:", edad)
+...     print("Categoría:", categoria)
+...     print("____________________")
+...
+Edad: 4
+Categoría: Bebé
+____________________
+Edad: 8
+Categoría: Niño
+____________________
+Edad: 12
+Categoría: Niño
+____________________
+Edad: 15
+Categoría: Adolecente
+____________________
+Edad: 20
+Categoría: Adulto
+____________________
+Edad: 30
+Categoría: Adulto
+____________________
+Edad: 70
+Categoría: Adulto mayor
+____________________
