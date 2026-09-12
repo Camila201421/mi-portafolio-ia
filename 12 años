@@ -2927,3 +2927,10 @@ Tienes: 67 años
 ...
 La persona menor es: Luna
 Tiene: 12 años
+>>> total = 0
+>>> for persona in personas:
+...      total = total + persona["edad"]
+... promedio = total / len(personas)
+... print("La edad promedio es:", promedio)
+...
+La edad promedio es: 30.833333333333332
