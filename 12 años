@@ -2848,3 +2848,82 @@ ____________________
 Edad: 70
 Categoría: Adulto mayor
 ____________________
+Clase 31
+>>> personas = [
+...     {"nombre": "Luna", "edad": 12},
+...     {"nombre": "Jose", "edad": 17},
+...     {"nombre": "Pedro", "edad": 23},
+...     {"nombre": "Zoraya", "edad": 26},
+...     {"nombre": "Lila", "edad": 40},
+...     {"nombre": "Jairo", "edad": 67}
+... ]
+>>> def clasificar_edad(edad):
+...     if edad < 6:
+...         return "Bebé"
+...     elif edad < 13:
+...         return "Niño"
+...     elif edad < 18:
+...         return "Adolescente"
+...     elif edad < 65:
+...         return "Adulto"
+...     else:
+...         return "Adulto mayor"
+...
+>>> for persona in personas:
+...     categoria = clasificar_edad(persona["edad"\
+])
+...     print(persona["nombre"], "→", categoria)
+...
+Luna → Niño
+Jose → Adolescente
+Pedro → Adulto
+Zoraya → Adulto
+Lila → Adulto
+Jairo → Adulto mayor
+>>> bebes = 0
+>>> ninos = 0
+>>> adolescentes = 0
+>>> adultos = 0
+>>> adultos_mayores = 0
+>>> for persona in personas:
+...      categoria = clasificar_edad(persona["edad\
+"])
+...      if categoria == "Bebé":
+...           bebes += 1
+...      elif categoria == "Niño":
+...           ninos += 1
+...      elif categoria == "Adolescente":
+...           adolescentes += 1
+...      elif categoria == "Adulto":
+...           adultos += 1
+...      else:
+...           adultos_mayores += 1
+... print("Bebés:", bebes)
+... print("Niños:", ninos)
+... print("Adolecentes:", adolescentes)
+... print("Adultos:", adultos)
+... print("Adultos mayores:", adultos_mayores)
+...
+Bebés: 0
+Niños: 1
+Adolecentes: 1
+Adultos: 3
+Adultos mayores: 1
+>>> mayor = personas[0]
+>>> for persona in personas:
+...      if persona["edad"] > mayor["edad"]:
+...           mayor = persona
+... print("La persona mayor es:", mayor["nombre"])
+... print("Tienes:", mayor["edad"], "años")
+...
+La persona mayor es: Jairo
+Tienes: 67 años
+>>> menor = personas[0]
+>>> for persona in personas:
+...      if persona["edad"] < menor["edad"]:
+...           menor = persona
+... print("La persona menor es:", menor["nombre"])
+... print("Tiene:", menor["edad"], "años")
+...
+La persona menor es: Luna
+Tiene: 12 años
