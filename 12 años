@@ -2934,3 +2934,60 @@ Tiene: 12 años
 ... print("La edad promedio es:", promedio)
 ...
 La edad promedio es: 30.833333333333332
+Clase 32
+>>> edad = 67
+>>> if edad >= 65:
+...      print("Persona mayor")
+... else:
+...      print("Persona menor de 65")
+...
+Persona mayor
+>>> edad = 67
+>>> if edad >= 18 and edad < 65:
+...      print("Adulto")
+... elif edad >= 65:
+...      print("Adulto mayor")
+... else:
+...      print("Menor de edad")
+...
+Adulto mayor
+>>> edad = 15
+>>> if edad < 6:
+...      print("Bebé")
+... elif edad < 13:
+...      print("Niñó")
+... elif edad < 18:
+...      print("Adolecente")
+... elif edad < 65:
+...      print("Adulto")
+... else:
+...      print("Adulto mayor")
+...
+Adolecente
+>>> for persona in personas:
+...      edad = persona["edad"]
+...      if edad >= 18:
+...           print(persona["nombre"], "es mayor d\
+e edad")
+...      else:
+...           print(persona["nombre"], "es menor d\
+e edad")
+...
+Luna es menor de edad
+Jose es menor de edad
+Pedro es mayor de edad
+Zoraya es mayor de edad
+Lila es mayor de edad
+Jairo es mayor de edad
+>>> mayores = 0
+>>> menores = 0
+>>> for persona in personas:
+...      if persona["edad"] >= 18:
+...           mayores += 1
+...      else:
+...           menores += 1
+... print("Mayores de edad:", mayores)
+... print("Menores de edad:", menores)
+...
+Mayores de edad: 4
+Menores de edad: 2
