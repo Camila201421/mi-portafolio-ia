@@ -2991,3 +2991,56 @@ Jairo es mayor de edad
 ...
 Mayores de edad: 4
 Menores de edad: 2
+Clase 33
+>>> edad = 20
+>>> experiencia = 2
+>>> if edad >= 81 and experiencia >= 1:
+...      print("Puede comenzar a trabajar")
+... else:
+...      print("Todavía necesita más preparació")
+...
+Todavía necesita más preparació
+>>> if edad >= 18 and experiencia >= 1:
+...      print("Puede comenzar a trabajar")
+... else:
+...      print("Todavía necesita más preparación")
+...
+Puede comenzar a trabajar
+>>> edad = 16
+>>> experiencia = 2
+>>> if edad >= 18 and experiencia >= 1:
+...      print("Puede comenzar a trabajar")
+... else:
+...      print("Todavía necesita más preparación")
+...
+>>> edad = 20
+>>> experiencia = 2
+>>> conocimientos = 8
+>>> if edad >= 18 and experiencia >= 1 and conocim\
+ientos >= 5:
+...      print("Nivel suficiente")
+... else:
+...      print("Necesita más preparación")
+...
+Nivel suficiente
+>>> edad = 20
+>>> experiencia = 2
+>>> conocimientos = 3
+>>> if edad >= 18 and experiencia >= 1 and conocim\
+ientos >= 5:
+...      print("Nivel suficiente")
+... else:
+...      print("Necesita más preparación")
+...
+Necesita más preparación
+>>> def evaluar_persona(edad, experiencia, conocim\
+ientos):
+...      if edad >= 18 and experiencia >= 1 and co\
+nocimientos >= 5:
+...           return "Nivel suficiente"
+...      else:
+...           return "Necesita más preparación"
+... resultado = evaluar_persona(20, 2, 8)
+... print(resultado)
+...
+Nivel suficiente
