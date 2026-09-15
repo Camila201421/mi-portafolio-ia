@@ -3044,3 +3044,119 @@ nocimientos >= 5:
 ... print(resultado)
 ...
 Nivel suficiente
+Clase 34
+>>> datos = [
+...     {"horas_estudio": 1, "aprobo": False},
+...     {"horas_estudio": 2, "aprobo": False},
+...     {"horas_estudio": 3, "aprobo": True},
+...     {"horas_estudio": 4, "aprobo": True},
+...     {"horas_estudio": 5, "aprobo": True},
+... ]
+>>>
+>>> for dato in datos:
+...     print("Horas:", dato["horas_estudio"], "→"\
+, dato["aprobo"])
+...
+Horas: 1 → False
+Horas: 2 → False
+Horas: 3 → True
+Horas: 4 → True
+Horas: 5 → True
+>>> for dato in datos:
+...     if dato["aprobo"] == True:
+...         print("Aprobó con", dato["horas_estudi\
+o"], "horas de estudio")
+...
+Aprobó con 3 horas de estudio
+Aprobó con 4 horas de estudio
+Aprobó con 5 horas de estudio
+>>> for dato in datos:
+...     if dato["aprobo"] == True:
+...         if minimo is None or dato["horas_estud\
+io"] < minimo:
+...             minimo = dato["horas_estudio"]
+... print("Mínimo de horas para aprobar:", minimo)
+...
+Mínimo de horas para aprobar: 3
+>>> horas_nuevas = 4
+>>> if horas_nuevas >= minimo:
+...     print("Predicción: probablemente aprobará"\
+)
+... else:
+...     print("Predicción: probablemente no aproba\
+rá")
+...
+Predicción: probablemente aprobará
+>>> def predecir_aprobado(horas):
+...
+...     if horas >= minimo:
+...         return "Probablemente aprobará"
+...     else:
+...         return "Probablemente no aprobará"
+...
+>>> print(predecir_aprobado(5))
+... print(predecir_aprobado(2))
+...
+Probablemente aprobará
+Probablemente no aprobará
+Clase 35
+>>> datos = [
+...     {"horas_estudio": 1, "aprobo": False},
+...     {"horas_estudio": 2, "aprobo": False},
+...     {"horas_estudio": 3, "aprobo": True},
+...     {"horas_estudio": 4, "aprobo": True},
+...     {"horas_estudio": 5, "aprobo": True}
+... ]
+>>> X = []
+>>> y = []
+>>> for dato in datos:
+...     X.append(dato["horas_estudio"])
+...     y.append(dato["aprobo"])
+... print("Característica:", X)
+... print("Resultados:", y)
+...
+Característica: [1, 2, 3, 4, 5, 1, 2, 3, 4, 5]
+Resultados: [False, False, True, True, True, False, False, True, True, True]
+>>> datos_nuevos = [2, 3, 6]
+>>> for horas in datos_nuevos:
+...     print("Horas de estudio: ", horas)
+...
+Horas de estudio:  2
+Horas de estudio:  3
+Horas de estudio:  6
+>>> for i in range(len(X)):
+...     print("Horas:", X[i], "→ Aprobó:", y[i])
+...
+Horas: 1 → Aprobó: False
+Horas: 2 → Aprobó: False
+Horas: 3 → Aprobó: True
+Horas: 4 → Aprobó: True
+Horas: 5 → Aprobó: True
+Horas: 1 → Aprobó: False
+Horas: 2 → Aprobó: False
+Horas: 3 → Aprobó: True
+Horas: 4 → Aprobó: True
+Horas: 5 → Aprobó: True
+>>> for i in range(len(X)):
+...
+...     if y[i] == True:
+...         print("Primer resultado positivo:", X[\
+i], "horas")
+...         break
+...
+Primer resultado positivo: 3 horas
+>>> def predecir(horas):
+...
+...     for i in range(len(X)):
+...
+...         if y[i] == True and X[i] <= horas:
+...             return "Probablemente aprobará"
+...
+...     return "Probablemente no aprobará"
+...
+...
+... print(predecir(4))
+... print(predecir(2))
+...
+Probablemente aprobará
+Probablemente no aprobará
