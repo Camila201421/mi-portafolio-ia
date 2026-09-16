@@ -3160,3 +3160,37 @@ Primer resultado positivo: 3 horas
 ...
 Probablemente aprobará
 Probablemente no aprobará
+Clase 36
+>>> datos = [
+...     {"horas_estudio": 1, "aprobo": 0},
+...     {"horas_estudio": 2, "aprobo": 0},
+...     {"horas_estudio": 3, "aprobo": 1},
+...     {"horas_estudio": 4, "aprobo": 1},
+...     {"horas_estudio": 5, "aprobo": 1}
+... ]
+...
+>>> X = []
+... y = []
+...
+... for dato in datos:
+...     X.append([dato["horas_estudio"]])
+...     y.append(dato["aprobo"])
+...
+... print("X:", X)
+... print("y:", y)
+...
+X: [[1], [2], [3], [4], [5]]
+y: [0, 0, 1, 1, 1]
+>>> from sklearn.tree import DecisionTreeClassifie\
+r
+>>> print("scikit-learn funciona")
+scikit-learn funciona
+>>> modelo = DecisionTreeClassifier()
+>>> modelo.fit(X,y)
+DecisionTreeClassifier()
+>>> print("Modelo entrenado")
+Modelo entrenado
+>>> prediccion = modelo.predict([[4]])
+... print("Predicción:", prediccion)
+...
+Predicción: [1]
