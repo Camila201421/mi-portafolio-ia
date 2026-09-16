@@ -3194,3 +3194,10 @@ Modelo entrenado
 ... print("Predicción:", prediccion)
 ...
 Predicción: [1]
+>>> print("2 horas:", modelo.predict([[2]]))
+... print("3 horas:", modelo.predict([[3]]))
+... print("5 horas:", modelo.predict([[5]]))
+...
+2 horas: [0]
+3 horas: [1]
+5 horas: [1]
