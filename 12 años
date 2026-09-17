@@ -3201,3 +3201,48 @@ Predicción: [1]
 2 horas: [0]
 3 horas: [1]
 5 horas: [1]
+Clase 37
+>>> datos = [
+...     {"horas_estudio": 1, "aprobo": 0},
+...     {"horas_estudio": 2, "aprobo": 0},
+...     {"horas_estudio": 3, "aprobo": 1},
+...     {"horas_estudio": 4, "aprobo": 1},
+...     {"horas_estudio": 5, "aprobo": 1},
+...     {"horas_estudio": 6, "aprobo": 1},
+...     {"horas_estudio": 7, "aprobo": 1},
+...     {"horas_estudio": 8, "aprobo": 1}
+... ]
+>>> X = []
+>>> y = []
+>>> for dato in datos:
+...     X.append([dato["horas_estudio"]])
+...     y.append([dato["aprobo"]])
+... print("X:", X)
+... print("y:", y)
+...
+X: [[1], [2], [3], [4], [5], [6], [7], [8]]
+y: [[0], [0], [1], [1], [1], [1], [1], [1]]
+>>> from sklearn.model_selection import train_test\
+_split
+>>> X_entrenamiento, X_prueba, y_entrenamiento, y_\
+prueba = train_test_split(
+... X, y, test_size=0.25, random_state=42
+... )
+>>> print("Datos de entrenamiento:", X_entrenamien\
+to)
+Datos de entrenamiento: [[1], [8], [3], [5], [4], [7]]
+>>> print("Datos de prueba:", X_prueba)
+Datos de prueba: [[2], [6]]
+>>> from sklearn.tree import DecisionTreeClassifie\
+r
+>>> modelo = DecisionTreeClassifier()
+>>> modelo.fit(X_entrenamiento, y_entrenamiento)
+DecisionTreeClassifier()
+>>> print("Modelo entrenado")
+Modelo entrenado
+>>> predicciones = modelo.predict(X_prueba)
+>>> print("Predicciones:", predicciones)
+Predicciones: [0 1]
+>>>
+>>> print("Resultados reales:", y_prueba)
+Resultados reales: [[0], [1]]
