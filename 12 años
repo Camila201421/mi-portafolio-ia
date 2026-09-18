@@ -3246,3 +3246,54 @@ Predicciones: [0 1]
 >>>
 >>> print("Resultados reales:", y_prueba)
 Resultados reales: [[0], [1]]
+Clase 38
+>>> datos = [
+...     {"estudio": 1, "sueno": 5, "aprobo": 0},
+...     {"estudio": 2, "sueno": 6, "aprobo": 0},
+...     {"estudio": 3, "sueno": 7, "aprobo": 1},
+...     {"estudio": 4, "sueno": 7, "aprobo": 1},
+...     {"estudio": 5, "sueno": 8, "aprobo": 1},
+...     {"estudio": 6, "sueno": 8, "aprobo": 1},
+...     {"estudio": 7, "sueno": 9, "aprobo": 1},
+...     {"estudio": 8, "sueno": 9, "aprobo": 1}
+... ]
+>>> X = []
+>>> y = []
+>>> for dato in datos:
+...     X.append([dato["estudio"], dato["sueno"]])
+...     y.append(dato["aprobo"])
+... print("X:", X)
+... print("y:", y)
+...
+X: [[1, 5], [2, 6], [3, 7], [4, 7], [5, 8], [6, 8], [7, 9], [8, 9]]
+y: [0, 0, 1, 1, 1, 1, 1, 1]
+>>> from sklearn.model_selection import train_test\
+_split
+>>> X_entrenamiento, X_prueba, y_entrenamiento, y_\
+prueba = train_test_split(
+...     X, y, test_size=0.25, random_state=42
+... )
+>>> print("Entrenamiento:", X_entrenamiento)
+... print("Prueba:", X_prueba)
+...
+Entrenamiento: [[1, 5], [8, 9], [3, 7], [5, 8], [4, 7], [7, 9]]
+Prueba: [[2, 6], [6, 8]]
+>>> from sklearn.tree import DecisionTreeClassifie\
+r
+>>> modelo = DecisionTreeClassifier()
+>>> modelo.fit(X_entrenamiento, y_entrenamiento)
+DecisionTreeClassifier()
+>>> print("Modelo entrenado")
+Modelo entrenado
+>>> predicciones = modelo.predict(X_prueba)
+...
+... print("Predicciones:", predicciones)
+... print("Resultados reales:", y_prueba)
+...
+Predicciones: [0 1]
+Resultados reales: [0, 1]
+>>> from sklearn.metrics import accuracy_score
+>>> precision = accuracy_score(y_prueba, prediccio\
+nes)
+>>> print("Precisión:", precision)
+Precisión: 1.0
