@@ -3297,3 +3297,72 @@ Resultados reales: [0, 1]
 nes)
 >>> print("Precisión:", precision)
 Precisión: 1.0
+Clase 39
+>>> datos = [
+...     {"estudio": 1, "sueno": 5, "ejercicios": 2\
+, "aprobo": 0},
+...     {"estudio": 2, "sueno": 6, "ejercicios": 3\
+, "aprobo": 0},
+...     {"estudio": 2, "sueno": 7, "ejercicios": 5\
+, "aprobo": 0},
+...     {"estudio": 3, "sueno": 7, "ejercicios": 6\
+, "aprobo": 1},
+...     {"estudio": 4, "sueno": 6, "ejercicios": 7\
+, "aprobo": 1},
+...     {"estudio": 4, "sueno": 8, "ejercicios": 8\
+, "aprobo": 1},
+...     {"estudio": 5, "sueno": 7, "ejercicios": 9\
+, "aprobo": 1},
+...     {"estudio": 5, "sueno": 8, "ejercicios": 1\
+0, "aprobo": 1},
+...     {"estudio": 6, "sueno": 8, "ejercicios": 1\
+1, "aprobo": 1},
+...     {"estudio": 7, "sueno": 7, "ejercicios": 1\
+2, "aprobo": 1},
+...     {"estudio": 8, "sueno": 8, "ejercicios": 1\
+4, "aprobo": 1},
+...     {"estudio": 9, "sueno": 9, "ejercicios": 1\
+5, "aprobo": 1}
+... ]
+>>> X = []
+>>> y = []
+>>> for dato in datos:
+...     X.append([
+...         dato["estudio"],
+...         dato["sueno"],
+...         dato["ejercicios"]
+...     ])
+...     y.append(dato["aprobo"])
+... print("X:", X)
+... print("y:", y)
+...
+X: [[1, 5, 2], [2, 6, 3], [2, 7, 5], [3, 7, 6], [4, 6, 7], [4, 8, 8], [5, 7, 9], [5, 8, 10], [6, 8, 11], [7, 7, 12], [8, 8, 14], [9, 9, 15]]
+y: [0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+>>> X_entrenamiento, X_prueba, y_entrenamiento, y_\
+prueba = train_test_split(
+...     X, y, test_size=0.25, random_state=42
+... )
+...
+... print("Entrenamiento:", X_entrenamiento)
+... print("Prueba:", X_prueba)
+...
+Entrenamiento: [[6, 8, 11], [4, 8, 8], [2, 7, 5], [2, 6, 3], [9, 9, 15], [4, 6, 7], [5, 8, 10], [3, 7, 6], [5, 7, 9]]
+Prueba: [[8, 8, 14], [7, 7, 12], [1, 5, 2]]
+>>> from sklearn.tree import DecisionTreeClassifie\
+r
+>>> modelo = DecisionTreeClassifier()
+>>> modelo.fit(X_entrenamiento, y_entrenamiento)
+DecisionTreeClassifier()
+>>> print("Modelo entrenado")
+Modelo entrenado
+>>> predicciones = modelo.predict(X_prueba)
+>>> print("Predicciones:", predicciones)
+... print("Resultados reales:", y_prueba)
+...
+Predicciones: [1 1 0]
+Resultados reales: [1, 1, 0]
+>>> from sklearn.metrics import accuracy_score
+>>> predicision = accuracy_score(y_prueba, predicc\
+iones)
+>>> print("Precisión:", precision)
+Precisión: 1.0
