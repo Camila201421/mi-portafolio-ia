@@ -3366,3 +3366,94 @@ Resultados reales: [1, 1, 0]
 iones)
 >>> print("Precisión:", precision)
 Precisión: 1.0
+Clase 40
+>>> nuevo_estudiante = [[6, 7, 10]]
+>>> print("Nuevo estudiante:", nuevo_estudiante)
+Nuevo estudiante: [[6, 7, 10]]
+>>> prediccion = modelo.predict(nuevo_estudiante)
+>>> print("Predicción:", prediccion)
+Predicción: [1]
+>>> nuevos_estudiantes = [
+...     [2, 5, 3],
+...     [5, 8, 9],
+...     [8, 9, 14]
+... ]
+>>> predicciones = modelo.predict(nuevos_estudiant\
+es)
+>>> print("Predicciones:", predicciones)
+Predicciones: [0 1 1]
+>>> for i in range(len(nuevos_estudiantes)):
+...     print(
+...         "Estudiante:", nuevos_estudiantes[i],
+...         "→ Predicción:", predicciones[i]
+...     )
+...
+Estudiante: [2, 5, 3] → Predicción: 0
+Estudiante: [5, 8, 9] → Predicción: 1
+Estudiante: [8, 9, 14] → Predicción: 1
+>>> for i in range(len(nuevos_estudiantes)):
+...     if predicciones[i] == 1:
+...         resultado = "Aprueba"
+...     else:
+...         resultado = "No aprueba"
+...     print(
+...         "Estudiante:", nuevos_estudiantes[i],
+...         "→", resultado
+...     )
+...
+Estudiante: [2, 5, 3] → No aprueba
+Estudiante: [5, 8, 9] → Aprueba
+Estudiante: [8, 9, 14] → Aprueba
+
+>>> estudio = int(input("Horas de estudio: "))
+Horas de estudio: 500
+>>> sueno = int(input("Horas de sueño: "))
+Horas de sueño: 1
+>>> ejercicios = int(input("Ejercicios realizados:\
+ "))
+Ejercicios realizados: 1000
+>>> nuevo_estudiante = [[estudio, sueno, ejercicio\
+s]]
+>>> prediccion = modelo.predict(nuevo_estudiante)
+>>> if prediccion[0] == 1:
+...     print("El modelo predice: Aprueba")
+... else:
+...     print("El modelo predice: No aprueba")
+...
+El modelo predice: Aprueba
+>>> estudio = int(input("Horas de estudio: "))
+Horas de estudio: 6
+>>> sueno = int(input("Horas de sueño: "))
+Horas de sueño: 8
+>>> ejercicios = int(input("Ejercicios realizados:\
+ "))
+Ejercicios realizados: 10
+>>> nuevo_estudiante = [[estudio, sueno, ejercicio\
+s]]
+>>> prediccion = modelo.predict(nuevo_estudiante)
+>>> if prediccion[0] == 1:
+...     print("El modelo predice: Aprueba")
+... else:
+...     print("El modelo predice: No aprueba")
+...
+El modelo predice: Aprueba
+>>> estudiantes = [
+...     [2, 5, 3],
+...     [5, 8, 9],
+...     [7, 7, 12],
+...     [8, 9, 14]
+... ]
+ >>> for estudiante in estudiantes:
+...     resultado = predecir_estudiante(
+...         estudiante[0],
+...         estudiante[1],
+...         estudiante[2]
+...     )
+...     print("Datos:", estudiante, "→", resultado\
+)
+...
+Datos: [2, 5, 3] → No aprueba
+Datos: [5, 8, 9] → Aprueba
+Datos: [7, 7, 12] → Aprueba
+Datos: [8, 9, 14] → Aprueba
+
