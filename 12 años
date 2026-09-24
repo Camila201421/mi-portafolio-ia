@@ -3456,4 +3456,173 @@ Datos: [2, 5, 3] → No aprueba
 Datos: [5, 8, 9] → Aprueba
 Datos: [7, 7, 12] → Aprueba
 Datos: [8, 9, 14] → Aprueba
-
+Despúes de Reiniciar Python
+>>> print("Hola, empezamos de nuevo")
+Hola, empezamos de nuevo
+>>> from sklearn.tree import DecisionTreeClassifie\
+r
+>>> from sklearn.model_selection import train_test\
+_split
+>>> from sklearn.metrics import accuracy_score
+>>> datos = [
+...     {"estudio": 1, "sueno": 5, "ejercicios": 2\
+, "aprobo": 0},
+...     {"estudio": 2, "sueno": 6, "ejercicios": 3\
+, "aprobo": 0},
+...     {"estudio": 2, "sueno": 7, "ejercicios": 5\
+, "aprobo": 0},
+...     {"estudio": 3, "sueno": 7, "ejercicios": 6\
+, "aprobo": 1},
+...     {"estudio": 4, "sueno": 6, "ejercicios": 7\
+, "aprobo": 1},
+...     {"estudio": 4, "sueno": 8, "ejercicios": 8\
+, "aprobo": 1},
+...     {"estudio": 5, "sueno": 7, "ejercicios": 9\
+, "aprobo": 1},
+...     {"estudio": 5, "sueno": 8, "ejercicios": 1\
+0, "aprobo": 1},
+...     {"estudio": 6, "sueno": 8, "ejercicios": 1\
+1, "aprobo": 1},
+...     {"estudio": 7, "sueno": 7, "ejercicios": 1\
+2, "aprobo": 1},
+...     {"estudio": 8, "sueno": 8, "ejercicios": 1\
+4, "aprobo": 1},
+...     {"estudio": 9, "sueno": 9, "ejercicios": 1\
+5, "aprobo": 1}
+... ]
+>>> X = []
+>>> y = []
+>>> for dato in datos:
+...     X.append([
+...         dato["estudio"],
+...         dato["sueno"],
+...         dato["ejercicios"]
+...     ])
+...     y.append(dato["aprobo"])
+... print("X:", X)
+... print("y:", y)
+...
+X: [[1, 5, 2], [2, 6, 3], [2, 7, 5], [3, 7, 6], [4, 6, 7], [4, 8, 8], [5, 7, 9], [5, 8, 10], [6, 8, 11], [7, 7, 12], [8, 8, 14], [9, 9, 15]]
+y: [0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+>>> X_entrenamiento, X_prueba, y_entrenamiento, y_p\
+rueba = train_test_split(
+...     X,
+...     y,
+...     test_size=0.25,
+...     random_state=42
+... )
+>>> print("Entrenamiento:", X_entrenamiento)
+Entrenamiento: [[6, 8, 11], [4, 8, 8], [2, 7, 5], [2, 6, 3], [9, 9, 15], [4, 6, 7], [5, 8, 10], [3, 7, 6], [5, 7, 9]]
+>>> print("Prueba:", X_prueba)
+Prueba: [[8, 8, 14], [7, 7, 12], [1, 5, 2]]
+>>> modelo = DecisionTreeClassifier()
+...
+>>>
+>>> modelo.fit(X_entrenamiento, y_entrenamiento)
+DecisionTreeClassifier()
+>>> print("Modelo entrenado correctamente")
+Modelo entrenado correctamente
+>>> predicciones = modelo.predict(X_prueba)
+>>> print("Predicciones:", predicciones)
+... print("Resultados reales:", y_prueba)
+...
+Predicciones: [1 1 0]
+Resultados reales: [1, 1, 0]
+>>> precision = accuracy_score(y_prueba, prediccion\
+es)
+>>> print("Precisión:", precision)
+Precisión: 1.0
+>>> def predecir_estudiante(estudio, sueno, ejercic\
+ios):
+...     nuevo_estudiante = [[estudio, sueno, ejerci\
+cios]]
+...
+...     prediccion = modelo.predict(nuevo_estudiant\
+e)
+...
+...     if prediccion[0] == 1:
+...         return "Aprueba"
+...     else:
+...         return "No aprueba"
+...
+>>> resultado = predecir_estudiante(6, 8, 10)
+...
+... print("Resultado:", resultado)
+...
+Resultado: Aprueba
+>>> estudiantes = [
+...     [2, 5, 3],
+...     [5, 8, 9],
+...     [7, 7, 12],
+...     [8, 9, 14]
+... ]
+...
+... for estudiante in estudiantes:
+...     resultado = predecir_estudiante(
+...         estudiante[0],
+...         estudiante[1],
+...         estudiante[2]
+...     )
+...
+...     print("Datos:", estudiante, "→", resultado)
+...
+Datos: [2, 5, 3] → No aprueba
+Datos: [5, 8, 9] → Aprueba
+Datos: [7, 7, 12] → Aprueba
+Datos: [8, 9, 14] → Aprueba
+>>> estudio = int(input("Horas de estudio: "))
+Horas de estudio: 3
+>>> sueno = int(input("Horas de sueño: "))
+Horas de sueño: 8
+>>> ejercicios = int(input("Número de ejercicios: "\
+))
+Número de ejercicios: 10
+>>> resultado = predecir_estudiante(
+...     estudio,
+...     sueno,
+...     ejercicios
+... )
+>>> print("Resultado:", resultado)
+Resultado: Aprueba
+>>> resultado = predecir_estudiante(4, 7, 8)
+>>> print("Resultado:", resultado)
+Resultado: Aprueba
+>>> estudiantes = [
+...     [1, 5, 2],
+...     [4, 8, 8],
+...     [9, 9, 15]
+... ]
+...
+... aprobados = 0
+...
+... for estudiante in estudiantes:
+...     resultado = predecir_estudiante(
+...         estudiante[0],
+...         estudiante[1],
+...         estudiante[2]
+...     )
+...
+...     print("Estudiante:", estudiante, "→", resul\
+tado)
+...
+...     if resultado == "Aprueba":
+...         aprobados += 1
+...
+... print("Aprobados:", aprobados)
+...
+Estudiante: [1, 5, 2] → No aprueba
+Estudiante: [4, 8, 8] → Aprueba
+Estudiante: [9, 9, 15] → Aprueba
+Aprobados: 2
+>>> aprobados = 0
+>>> for estudiante in estudiantes:
+...     resultado = predecir_estudiante(
+...         estudiante[0],
+...         estudiante[1],
+...         estudiante[2]
+...     )
+...     if resultado == "Aprueba":
+...         aprobados += 1
+... print("Aprobados:", aprobados)
+...
+Aprobados: 2
