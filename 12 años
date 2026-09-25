@@ -3626,3 +3626,40 @@ Aprobados: 2
 ... print("Aprobados:", aprobados)
 ...
 Aprobados: 2
+>>> def mostrar_resultado(estudiante):
+...     resultado = predecir_estudiante(
+...         estudiante[0],
+...         estudiante[1],
+...         estudiante[2]
+...     )
+...     print("Estudiante:", estudiante, "→", resu\
+ltado)
+...
+>>> mostrar_resultado([4, 8, 8])
+Estudiante: [4, 8, 8] → Aprueba
+>>> def analizar_estudiantes(estudiante):
+...     aprobados = 0
+...     for estudiante in estudiantes:
+...         resultado = predecir_estudiante(
+...             estudiante[0],
+...             estudiante[1],
+...             estudiante[2]
+...         )
+...         print("Estudiante:", estudiante, "→", \
+resultado)
+...         if resultado == "Aprueba":
+...             aprobados += 1
+...     print("Total aprobados:", aprobados)
+...
+>>> estudiantes = [
+...     [1, 5, 2],
+...     [4, 8, 8],
+...     [7, 7, 12],
+...     [9, 9, 15]
+... ]
+>>> analizar_estudiantes(estudiantes)
+Estudiante: [1, 5, 2] → No aprueba
+Estudiante: [4, 8, 8] → Aprueba
+Estudiante: [7, 7, 12] → Aprueba
+Estudiante: [9, 9, 15] → Aprueba
+Total aprobados: 3
