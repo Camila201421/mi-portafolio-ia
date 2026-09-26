@@ -4018,3 +4018,151 @@ Total no aprobados: 1
 Elige una opción: 3
 Programa terminado
 
+>>> while True:
+...     print("\n===== PROYECTO ML =====")
+...     print("1. Predecir estudiante")
+...     print("2. Analizar estudiantes")
+...     print("3. Salir")
+...     opcion = input("Elige una opción: ")
+...     if opcion == "1":
+...         estudio = int(input("Horas de estudio:\
+ "))
+...         sueno = int(input("Horas de sueño: "))
+...         ejercicios = int(input("Número de ejer\
+cicios: "))
+...         resultado = predecir_estudiante(
+...             estudio,
+...             sueno,
+...             ejercicios
+...         )
+...         print("Resultado:", resultado)
+...         if resultado == "Aprueba":
+...             print("El modelo predice que aprue\
+ba.")
+...         else:
+...             print("El modelo predice que neces\
+ita mejorar.")
+...         total = len(estudiantes)
+...         procentaje = (aprobados / total) * 100
+...         print("Porcentaje de aprobados:", proc\
+entaje, "%")
+...     elif opcion == "2":
+...         estudinates = [
+...             [1, 5, 2],
+...             [4, 8, 8],
+...             [7, 7, 12],
+...             [9, 9, 15]
+...         ]
+...         analizar_estudiantes(estudiantes)
+...     elif opcion == "3":
+...         print("Programa terminado")
+...         break
+...     else:
+...         print("Opción ni válida")
+...
+
+===== PROYECTO ML =====
+1. Predecir estudiante
+2. Analizar estudiantes
+3. Salir
+Elige una opción: 1
+Horas de estudio: 6
+Horas de sueño: 1
+Número de ejercicios: 9
+Resultado: Aprueba
+El modelo predice que aprueba.
+Porcentaje de aprobados: 50.0 %
+
+===== PROYECTO ML =====
+1. Predecir estudiante
+2. Analizar estudiantes
+3. Salir
+Elige una opción: 2
+Estudiante: [1, 5, 2] → No aprueba
+Estudiante: [4, 8, 8] → Aprueba
+Estudiante: [7, 7, 12] → Aprueba
+Estudiante: [9, 9, 15] → Aprueba
+Total aprobados: 3
+Total no aprobados: 1
+
+===== PROYECTO ML =====
+1. Predecir estudiante
+2. Analizar estudiantes
+3. Salir
+Elige una opción: 3
+Programa terminado
+
+>>> while True:
+...     print("\n===== PROYECTO ML =====")
+...     print("1. Predecir estudiante")
+...     print("2. Analizar estudiantes")
+...     print("3. Salir")
+...     opcion = input("Elige una opción: ")
+...     if opcion == "1":
+...         estudio = int(input("Horas de estudio:\
+ "))
+...         sueno = int(input("Horas de sueño: "))
+...         ejercicios = int(input("Número de ejer\
+cicios: "))
+...         resultado = predecir_estudiante(
+...             estudio,
+...             sueno,
+...             ejercicios
+...         )
+...         print("Resultado:", resultado)
+...         if resultado == "Aprueba":
+...             print("El modelo predice que aprue\
+ba.")
+...         else:
+...             print("El modelo predice que neces\
+ita mejorar.")
+...         total = len(estudiantes)
+...         procentaje = (aprobados / total) * 100
+...         print("Porcentaje de aprobados:", proc\
+entaje, "%")
+...     elif opcion == "2":
+...         nuevos_estudiantes = [
+...             [2, 6, 3],
+...             [3, 7, 6],
+...             [6, 8, 11],
+...             [8, 9, 14],
+...             [9, 9, 15]
+...         ]
+...         analizar_estudiantes(nuevos_estudiante\
+s)
+...     elif opcion == "3":
+...         print("Programa terminado")
+...         break
+...
+
+===== PROYECTO ML =====
+1. Predecir estudiante
+2. Analizar estudiantes
+3. Salir
+Elige una opción: 1
+Horas de estudio: 8
+Horas de sueño: 5
+Número de ejercicios: 9
+Resultado: Aprueba
+El modelo predice que aprueba.
+Porcentaje de aprobados: 50.0 %
+
+===== PROYECTO ML =====
+1. Predecir estudiante
+2. Analizar estudiantes
+3. Salir
+Elige una opción: 2
+Estudiante: [2, 6, 3] → No aprueba
+Estudiante: [3, 7, 6] → Aprueba
+Estudiante: [6, 8, 11] → Aprueba
+Estudiante: [8, 9, 14] → Aprueba
+Estudiante: [9, 9, 15] → Aprueba
+Total aprobados: 4
+Total no aprobados: 1
+
+===== PROYECTO ML =====
+1. Predecir estudiante
+2. Analizar estudiantes
+3. Salir
+Elige una opción: 3
+Programa terminado
