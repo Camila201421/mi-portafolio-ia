@@ -4166,3 +4166,128 @@ Total no aprobados: 1
 3. Salir
 Elige una opción: 3
 Programa terminado
+Clase 44:
+>>> def mostrar_menu():
+...     print("\n===== PROYECTO ML =====")
+...     print("1. Predecir estudiante")
+...     print("2. Analizar estudiantes")
+...     print("3. Salir")
+...
+>>> mostrar_menu()
+
+===== PROYECTO ML =====
+1. Predecir estudiante
+2. Analizar estudiantes
+3. Salir
+
+>>> def pedir_estudiante():
+...     estudio = int(input("Horas de estudio: "\
+))
+...     sueno = int(input("Horas de sueño: "))
+...     ejercicios = int(input("Número de ejercici\
+os: "))
+...     return [estudio, sueno, ejercicios]
+...
+>>> estudiante = pedir_estudiante()
+Horas de estudio: 5
+Horas de sueño: 8
+Número de ejercicios: 2
+
+>>> def predecir_nuevo_estudiante():
+...     estudiante = pedir_estudiante()
+...     resultado = predecir_estudiante(
+...         estudiante[0],
+...         estudiante[1],
+...         estudiante[2]
+...     )
+...     print("Estudiante:", estudiante)
+...     print("Resultado:", resultado)
+... predecir_nuevo_estudiante()
+...
+Horas de estudio: 0
+Horas de sueño: 4
+Número de ejercicios: 17
+Estudiante: [0, 4, 17]
+Resultado: Aprueba
+
+>>> def elegir_opcion():
+...     mostrar_menu()
+...     opcion = input("Elige un opción: ")
+...     return opcion
+... opcion = elegir_opcion()
+... print("Has elegido:", opcion)
+...
+
+===== PROYECTO ML =====
+1. Predecir estudiante
+2. Analizar estudiantes
+3. Salir
+Elige un opción: 1
+Has elegido: 1
+>>> elegir_opcion()
+
+===== PROYECTO ML =====
+1. Predecir estudiante
+2. Analizar estudiantes
+3. Salir
+Elige un opción: 2
+'2'
+>>> elegir_opcion()
+
+===== PROYECTO ML =====
+1. Predecir estudiante
+2. Analizar estudiantes
+3. Salir
+Elige un opción: 3
+'3'
+
+>>> def ejecutar_menu():
+...     while True:
+...         opcion = elegir_opcion()
+...         if opcion == "1":
+...             predecir_nuevo_estudiante()
+...         elif opcion == "2":
+...             estudiantes = [
+...                 [1, 5, 2],
+...                 [4, 8, 8],
+...                 [7, 7, 12],
+...                 [9, 9, 15]
+...             ]
+...             analizar_estudiantes(estudiantes)
+...         elif opcion == "3":
+...             print("Programa terminado")
+...             break
+...         else:
+...             print("opción no válida")
+...
+>>> ejecutar_menu()
+
+===== PROYECTO ML =====
+1. Predecir estudiante
+2. Analizar estudiantes
+3. Salir
+Elige un opción: 1
+Horas de estudia+o: 6
+Horas de sueño: 8
+Número de ejercicios: 4
+Estudiante: [6, 8, 4]
+Resultado: No aprueba
+
+===== PROYECTO ML =====
+1. Predecir estudiante
+2. Analizar estudiantes
+3. Salir
+Elige un opción: 2
+Estudiante: [1, 5, 2] → No aprueba
+Estudiante: [4, 8, 8] → Aprueba
+Estudiante: [7, 7, 12] → Aprueba
+Estudiante: [9, 9, 15] → Aprueba
+Total aprobados: 3
+Total no aprobados: 1
+
+===== PROYECTO ML =====
+1. Predecir estudiante
+2. Analizar estudiantes
+3. Salir
+Elige un opción: 3
+Programa terminado
