@@ -4291,3 +4291,106 @@ Total no aprobados: 1
 3. Salir
 Elige un opción: 3
 Programa terminado
+Clase 45:
+>>> def contar_aprobados(estudiantes):
+...     aprobados = 0
+...     for estudiante in estudiantes:
+...         resultado = predecir_estudiante(
+...             estudiante[0],
+...             estudiante[1],
+...             estudiante[2]
+...         )
+...         if resultado == "Aprueba":
+...             aprobados += 1
+...     return aprobados
+...
+>>> estudiantes = [
+...     [1, 5, 2],
+...     [4, 8, 8],
+...     [7, 7, 12],
+...     [9, 9, 15]
+... ]
+>>> total = contar_aprobados(estudiantes)
+>>> print("Total aprobados:", total)
+Total aprobados: 3
+
+>>> def contar_no_aprobados(estudiantes):
+...     no_aprobados = 0
+...     for estudiante in estudiantes:
+...         resultado = predecir_estudiante(
+...             estudiante[0],
+...             estudiante[1],
+...             estudiante[2]
+...         )
+...         if resultado == "No aprueba":
+...             no_aprobados += 1
+...     return no_aprobados
+...
+>>> total = contar_no_aprobados(estudiantes)
+>>> print("Total no aprobados:", total)
+Total no aprobados: 1
+
+>>> def porcentaje_aprobados(estudiantes):
+...     total_aprobados = contar_aprobados(estudia\
+ntes)
+...     total_estudiantes = len(estudiante)
+...     porcentaje = (total_aprobados / total_estu\
+diantes) * 100
+...     return porcentaje
+...
+>>> porcentaje = porcentaje_aprobados(estudiantes)
+>>> print("Procentaje de aprobados:", porcentaje, \
+"%")
+Procentaje de aprobados: 100.0 %
+
+>>> def resumen_estudiantes(estudiantes):
+...     aprobados = contar_aprobados(estudiantes)
+...     no_aprobados = contar_no_aprobados(estudia\
+ntes)
+...     print("===== RESUMEN =====")
+...     print("Total estudidantes:", len(estudiant\
+es))
+...     print("Aprobados:", aprobados)
+...     print("No aprobados:", no_aprobados)
+...
+>>> resumen_estudiantes(estudiantes)
+===== RESUMEN =====
+Total estudidantes: 4
+Aprobados: 3
+No aprobados: 1
+>>> def resumen_estudiantes(estudiantes):
+...     aprobados = contar_aprobados(estudiantes)
+...     no_aprobados = contar_no_aprobados(estudia\
+ntes)
+...     print("===== RESUMEN =====")
+...     print("Total estudidantes:", len(estudiant\
+es))
+...     print("Aprobaron:", aprobados)
+...     print("Suspendieron:", no_aprobados)
+>>> resumen_estudiantes(estudiantes)
+===== RESUMEN =====
+Total estudidantes: 4
+Aprobaron: 3
+Suspendieron: 1
+
+>>> def imforme_estudiantes(estudiantes):
+...     total = len(estudiantes)
+...     aprobados = contar_aprobados(estudiantes)
+...     no_aprobados = contar_no_aprobados(estudia\
+ntes)
+...     porcentaje = porcentaje_aprobados(estudian\
+tes)
+...
+...     print("===== INFORME ML =====")
+...     print("Total estudiantes:", total)
+...     print("Aprobados:", aprobados)
+...     print("No aprobados:", no_aprobados)
+...     print("Porcentaje de aprobados:", porcenta\
+je, "%")
+...
+>>> imforme_estudiantes(estudiantes)
+===== INFORME ML =====
+Total estudiantes: 4
+Aprobados: 3
+No aprobados: 1
+Porcentaje de aprobados: 75.0 %
