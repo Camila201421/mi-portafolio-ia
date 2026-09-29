@@ -4394,3 +4394,148 @@ Total estudiantes: 4
 Aprobados: 3
 No aprobados: 1
 Porcentaje de aprobados: 75.0 %
+Clase 46:
+>>> def agregar_estudiante(estudiante):
+...     estudio = int(input("Horas de estudio: "))
+...     sueno = int(input("Horas de sueño: "))
+...     ejercicios = int(input("Número de ejercici\
+os: "))
+...     nuevo_estudiante = [estudio, sueno, ejerci\
+cios]
+...     estudiantes.append(nuevo_estudiante)
+...     print("Estudiante agregado:", nuevo_estudi\
+ante)
+...
+>>> agregar_estudiante(estudiantes)
+Horas de estudio: 5
+Horas de sueño: 0
+Número de ejercicios: 16
+Estudiante agregado: [5, 0, 16]
+>>> print(estudiantes)
+[[1, 5, 2], [4, 8, 8], [7, 7, 12], [9, 9, 15], [5, 0, 16]]
+
+>>> def mostrar_estudiantes(estudiantes):
+...     print("===== ESTUDIANTES =====")
+...     for estudiante in estudiantes:
+...         print(estudiante)
+...
+>>> mostrar_estudiantes(estudiantes)
+===== ESTUDIANTES =====
+[1, 5, 2]
+[4, 8, 8]
+[7, 7, 12]
+[9, 9, 15]
+[5, 0, 16]
+
+>>> def buscar_por_estudio(estudiantes, horas):
+...     encontrados = []
+...     for estudiante in estudiantes:
+...         if estudiante[0] == horas:
+...             encontrados.append(estudiante)
+...     return encontrados
+...
+>>> resultado = buscar_por_estudio(estudiantes, 5)
+... print("Encontrados:", resultado)
+...
+Encontrados: [[5, 0, 16]]
+
+>>> def contar_estudiantes(estudiantes):
+...     return len(estudiantes)
+... total = contar_estudiantes(estudiantes)
+... print("Total de estudiantes:", total)
+...
+Total de estudiantes: 5
+
+>>> def eliminar_estudiante(estudiante, posicion):
+...     if posicion >= 0 and posicion < len(estudi\
+antes):
+...         eliminado = estudiantes.pop(posicion)
+...         print("Estudiante eliminado:", elimina\
+do)
+...     else:
+...         print("Posición no váalida")
+...
+>>> eliminar_estudiante(estudiantes, 4)
+Estudiante eliminado: [5, 0, 16]
+>>> mostrar_estudiantes(estudiantes)
+===== ESTUDIANTES =====
+[1, 5, 2]
+[4, 8, 8]
+[7, 7, 12]
+[9, 9, 15]
+Clase 47:
+>>> def modificar_estudiante(estudiantes, posicion\
+):
+...     if posicion >= 0 and posicion < len(estudi\
+antes):
+...         estudio = int(input("Nuevas horas de e\
+studio: "))
+...         sueno = int(input("Nuevas horas de sue\
+ño: "))
+...         ejercicios = int(input("Nuevo número d\
+e ejercicios: "))
+...
+...         estudiantes[posicion] = [estudio, suen\
+o, ejercicios]
+...
+...         print("Estudiante modificado:", estudi\
+antes[posicion])
+...     else:
+...         print("Posición no válida")
+...
+>>> modificar_estudiante(estudiantes, 0)
+Nuevas horas de estudio: 6
+Nuevas horas de sueño: 2
+Nuevo número de ejercicios: 20
+Estudiante modificado: [6, 2, 20]
+
+>>> def buscar_por_sueno(estudiantes, horas):
+...     encontrados = []
+...
+...     for estudiante in estudiantes:
+...         if estudiante[1] == horas:
+...             encontrados.append(estudiante)
+...
+...     return encontrados
+...
+>>> resultado = buscar_por_sueno(estudiantes, 8)
+... print("Encontrados:", resultado)
+...
+Encontrados: [[4, 8, 8]]
+
+>>> def buscar_por_ejercicios(estudiantes, cantida\
+d):
+...     encontrados = []
+...     for estudiante in estudiantes:
+...         if estudiante[2] == cantidad:
+...             encontrados.append(estudiante)
+...     return encontrados
+...
+>>> resultado = buscar_por_ejercicios(estudiantes,\
+ 12)
+>>> print("Encontrados:", resultado)
+Encontrados: [[7, 7, 12]]
+
+>>> def estudiante_mas_estudio(estudiantes):
+...     mayor = estudiantes[0]
+...     for estudiante in estudiantes:
+...         if estudiante[0] > mayor[0]:
+...             mayor = estudiante
+...     return mayor
+...
+>>> resultado = estudiante_mas_estudio(estudiantes\
+)
+>>> print("Más horas de estudio:", resultado)
+Más horas de estudio: [9, 9, 15]
+
+>>> def estudiante_mas_ejercicios(estudiantes):
+...     mayor = estudiantes[0]
+...     for estudiante in estudiantes:
+...         if estudiante[2] > mayor[2]:
+...             mayor = estudiante
+...     return mayor
+...
+>>> resultado = estudiante_mas_ejercicios(estudian\
+tes)
+>>> print("Más ejercicios:", resultado)
+Más ejercicios: [6, 2, 20]
