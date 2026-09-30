@@ -4539,3 +4539,62 @@ Más horas de estudio: [9, 9, 15]
 tes)
 >>> print("Más ejercicios:", resultado)
 Más ejercicios: [6, 2, 20]
+Clase 48:
+>>> def promedio_estudio(estudiantes):
+...     total = 0
+...     for estudiante in estudiantes:
+...         total += estudiante[0]
+...     return total / len(estudiantes)
+...
+>>> promedio = promedio_estudio(estudiantes)
+>>> print("Promedio de estudio:", promedio)
+Promedio de estudio: 6.5
+
+>>> def promedio_sueno(estudiantes):
+...     total = 0
+...     for estudiante in estudiantes:
+...         total += estudiante[1]
+...     return total / len(estudiantes)
+...
+>>> promedio = promedio_sueno(estudiantes)
+>>> print("Promedio de sueño:", promedio)
+Promedio de sueño: 6.5
+
+>>> def promedio_ejercicios(estudiantes):
+...     total = 0
+...     for estudiante in estudiantes:
+...         total += estudiante[2]
+...     return total / len(estudiantes)
+...
+>>> promedio = promedio_ejercicios(estudiantes\
+)
+>>> print("Promedio de ejercicios:", promedio)
+Promedio de ejercicios: 13.75
+
+>>> def mostrar_estadisticas(estudiantes):
+...     print("===== ESTADÍSTICAS =====")
+...     print("Promedio de estudio:", promedio\
+_estudio(estudiantes))
+...     print("Promedio de sueño:", promedio_s\
+ueno(estudiantes))
+...     print("Promedio de ejercicios:", prome\
+dio_ejercicios(estudiantes))
+...
+>>> mostrar_estadisticas(estudiantes)
+===== ESTADÍSTICAS =====
+Promedio de estudio: 6.5
+Promedio de sueño: 6.5
+Promedio de ejercicios: 13.75
+
+>>> def analizar_estudio(estudiantes):
+...     promedio = promedio_estudio(estudiante\
+s)
+...     if promedio >= 6:
+...         print("El promedio de estudio es b\
+ueno.")
+...     else:
+...         print("El promedio de estudio es m\
+enor de 6 horas.")
+...
+>>> analizar_estudio(estudiantes)
+El promedio de estudio es bueno.
