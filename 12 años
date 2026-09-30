@@ -4598,3 +4598,83 @@ enor de 6 horas.")
 ...
 >>> analizar_estudio(estudiantes)
 El promedio de estudio es bueno.
+Clase 49:
+>>> def analizar_sueno(estudiantes):
+...     promedio = promedio_sueno(estudiantes)
+...     if promedio >= 7:
+...         print("El promedio de sueño es bue\
+no.")
+...     else:
+...         print("El promedio de sueño es baj\
+o.")
+...
+
+>>> def analizar_ejercicios(estudiantes):
+...     promedio = promedio_ejercicios(estudia\
+ntes)
+...     if promedio >= 10:
+...         print("El promedio de ejercicios e\
+s bueno.")
+...     else:
+...         print("El promedio de ejercicios e\
+s bajo.")
+...
+>>> analizar_ejercicios(estudiantes)
+El promedio de ejercicios es bueno.
+
+>>> def analizar_estudiante(estudiantes):
+...     estudio = promedio_estudio(estudiantes\
+)
+...     sueno = promedio_sueno(estudiantes)
+...
+...     if estudio >= 6 and sueno >= 7:
+...         print("El grupo tiene buenos hábit\
+os.")
+...     else:
+...         print("El grupo puede mejorar sus \
+hábitos.")
+...
+>>> analizar_estudiante(estudiantes)
+El grupo puede mejorar sus hábitos.
+
+>>> def contar_buenos_ejercicios(estudiantes):
+...     contador = 0
+...     for estudiante in estudiantes:
+...         if estudiante[2] >= 10:
+...             contador += 1
+...     return contador
+...
+>>> resultado = contar_buenos_ejercicios(estud\
+iantes)
+>>> print("Estudiantes con 10 0 más ejercicios\
+:", resultado)
+Estudiantes con 10 0 más ejercicios: 3
+
+>>> def analisis_general(estudiantes):
+...     estudio = promedio_estudio(estudiantes\
+)
+...     sueno = promedio_sueno(estudiantes)
+...     ejercicios = promedio_ejercicios(estud\
+iantes)
+...
+...     print("===== ANÁLISIS GENERAL =====")
+...     print("Promedio de estudio:", estudio)\
+
+...     print("Promedio de sueño:", sueno)
+...     print("Promedio de ejercicios:", ejerc\
+icios)
+...
+...     if estudio >= 6 and sueno >= 7 and eje\
+rcicios >= 10:
+...         print("El grupo tiene buenos hábit\
+os de estudio.")
+...     else:
+...         print("El grupo puede mejorar sus \
+hábitos.")
+...
+>>> analisis_general(estudiantes)
+===== ANÁLISIS GENERAL =====
+Promedio de estudio: 6.5
+Promedio de sueño: 6.5
+Promedio de ejercicios: 13.75
+El grupo puede mejorar sus hábitos.
