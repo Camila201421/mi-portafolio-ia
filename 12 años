@@ -4678,3 +4678,86 @@ Promedio de estudio: 6.5
 Promedio de sueño: 6.5
 Promedio de ejercicios: 13.75
 El grupo puede mejorar sus hábitos.
+Clase 50:
+>>> def clasificar_habitos(estudiante):
+...     estudio = estudiante[0]
+...     sueno = estudiante[1]
+...     ejercicios = estudiante[2]
+...
+...     if estudio >= 6 and sueno >= 7 and eje\
+rcicios >= 10:
+...         return "Buenos hábitos"
+...     else:
+...         return "Necesita mejorar"
+...
+>>> resultado = clasificar_habitos([7, 8, 12])
+>>> print(resultado)
+Buenos hábitos
+
+>>> def clasificar_estudiantes(estudiantes):
+...     for estudiante in estudiantes:
+...         resultado = clasificar_habitos(est\
+udiante)
+...         print(estudiante, "→", resultado)
+...
+>>> clasificar_estudiantes(estudiantes)
+[6, 2, 20] → Necesita mejorar
+[4, 8, 8] → Necesita mejorar
+[7, 7, 12] → Buenos hábitos
+[9, 9, 15] → Buenos hábitos
+
+>>> def contar_buenos_habitos(estudiantes):
+...     contador = 0
+...
+...     for estudiante in estudiantes:
+...         resultado = clasificar_habitos(est\
+udiante)
+...
+...         if resultado == "Buenos hábitos":
+...             contador += 1
+...
+...     return contador
+...
+>>> cantidad = contar_buenos_habitos(estudiant\
+es)
+... print("Buenos hábitos:", cantidad)
+...
+Buenos hábitos: 2
+
+>>> def contar_necesitan_mejorar(estudiantes):\
+
+...     contador = 0
+...
+...     for estudiante in estudiantes:
+...         resultado = clasificar_habitos(est\
+udiante)
+...
+...         if resultado == "Necesita mejorar"\
+:
+...             contador += 1
+...
+...     return contador
+...
+>>> cantidad = contar_necesitan_mejorar(estudi\
+antes)
+... print("Necesitan mejorar:", cantidad)
+...
+Necesitan mejorar: 2
+
+>>> def imforme_habitos(estudiantes):
+...     buenos = contar_buenos_habitos(estudia\
+ntes)
+...     mejorar = contar_necesitan_mejorar(est\
+udiantes)
+...     print("===== IMFORME DE HÁBITOS ====="\
+)
+...     print("Total de estudiantes:", len(est\
+udiantes))
+...     print("Buenos hábitos:", buenos)
+...     print("Necesitan mejorar:", mejorar)
+...
+>>> imforme_habitos(estudiantes)
+===== IMFORME DE HÁBITOS =====
+Total de estudiantes: 4
+Buenos hábitos: 2
+Necesitan mejorar: 2
