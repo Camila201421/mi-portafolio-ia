@@ -4761,3 +4761,72 @@ udiantes))
 Total de estudiantes: 4
 Buenos hábitos: 2
 Necesitan mejorar: 2
+Clase 51:
+>>> def obtener_clasificaciones(estudiantes):
+...     resultados = []
+...     for estudiante in estudiantes:
+...         resultado = clasificar_habitos(est\
+udiante)
+...         resultados.append(resultado)
+...     return resultados
+...
+>>> clasificaciones = obtener_clasificaciones(\
+estudiantes)
+>>> print(clasificaciones)
+['Necesita mejorar', 'Necesita mejorar', 'Buenos hábitos', 'Buenos hábitos']
+
+>>> def mostrar_clasificaciones(estudiantes):
+...     clasificaciones = obtener_clasificacio\
+nes(estudiantes)
+...     for resultado in clasificaciones:
+...         print(resultado)
+...
+>>> mostrar_clasificaciones(estudiantes)
+Necesita mejorar
+Necesita mejorar
+Buenos hábitos
+Buenos hábitos
+
+>>> def contar_buenos_resultados(clasificacion\
+es):
+...     contador = 0
+...     for resultado in clasificaciones:
+...         if resultado == "Buenos hábitos":
+...             contador += 1
+...     return contador
+...
+>>> cantidad = contar_buenos_resultados(clasif\
+icaciones)
+>>> print("Buenos hábitos:", cantidad)
+Buenos hábitos: 2
+
+>>> def estudiantes_buenos_habitos(estudiantes\
+):
+...     encontrados = []
+...     for estudiante in estudiantes:
+...         if clasificar_habitos(estudiante) \
+== "Buenos hábitos":
+...             encontrados.append(estudiante)
+...     return encontrados
+...
+>>> resultado = estudiantes_buenos_habitos(est\
+udiantes)
+>>> print("Estudiantes con buenos hábitos:", r\
+esultado)
+Estudiantes con buenos hábitos: [[7, 7, 12], [9, 9, 15]]
+
+>>> def estudiante_mas_ejercicios_info(estudia\
+ntes):
+...     mayor = estudiantes[0]
+...     for estudiante in estudiantes:
+...         if estudiante[2] > mayor[2]:
+...             mayor = estudiante
+...     print("Estudiante con más ejercicios:"\
+, mayor)
+...     print("Cantidad de ejercicios:", mayor\
+[2])
+...
+>>> estudiante_mas_ejercicios_info(estudiantes\
+)
+Estudiante con más ejercicios: [6, 2, 20]
+Cantidad de ejercicios: 20
