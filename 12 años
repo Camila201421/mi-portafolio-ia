@@ -4830,3 +4830,78 @@ ntes):
 )
 Estudiante con más ejercicios: [6, 2, 20]
 Cantidad de ejercicios: 20
+Clase 52:
+>>> def buscar_poco_sueno(estudiantes):
+...     encontrados = []
+...     for estudiante in estudiantes:
+...         if estudiante[1] < 7:
+...             encontrados.append(estudiante)
+...     return encontrados
+...
+>>> resultado = buscar_poco_sueno(estudiantes)
+>>> print("Estudiantes con poco sueño:", resul\
+tado)
+Estudiantes con poco sueño: [[6, 2, 20]]
+
+>>> def buscar_muchos_ejercicios(estudiantes):
+...     encontrados = []
+...     for estudiante in estudiantes:
+...         if estudiante[2] >= 15:
+...             encontrados.append(estudiante)
+...     return encontrados
+...
+
+>>> def buscar_mucho_estudio(estudiantes):
+...     encontrados = []
+...     for estudiante in estudiantes:
+...         if estudiante[0] >= 8:
+...             encontrados.append(estudiante)
+...     return encontrados
+...
+>>> resultado = buscar_mucho_estudio(estudiant\
+es)
+>>> print("Estudiantes con mucho estudio:", re\
+sultado)
+Estudiantes con mucho estudio: [[9, 9, 15]]
+
+>>> def buscar_buenos_habitos(estudiantes):
+...     encontrados = []
+...     for estudiante in estudiantes:
+...         if clasificar_habitos(estudiante) \
+== "Buenos hábitos":
+...             encontrados.append(estudiante)
+...     return encontrados
+...
+>>> resultado = buscar_buenos_habitos(estudian\
+tes)
+>>> print("Estudiantes con buenos hábitos:", r\
+esultado)
+Estudiantes con buenos hábitos: [[7, 7, 12], [9, 9, 15]]
+
+>>> def informe_busquedas(estudiantes):
+...     poco_sueno = buscar_poco_sueno(estudia\
+ntes)
+...     muchos_ejercicios = buscar_muchos_ejer\
+cicios(estudiantes)
+...     mucho_estudio = buscar_mucho_estudio(e\
+studiantes)
+...     buenos_habitos = buscar_buenos_habitos\
+(estudiantes)
+...
+...     print("===== INFORME DE BÚSQUEDA =====\
+")
+...     print("Estudiantes con poco sueño:", l\
+en(poco_sueno))
+...     print("Estudiantes con muchos ejercici\
+os:", len(muchos_ejercicios))
+...     print("Estudiantes con mucho estudio:"\
+, len(mucho_estudio))
+...     print("Estudiantes con buenos hábitos:\
+", len(buenos_habitos))
+...
+>>> informe_busquedas(estudiantes)
+===== INFORME DE BÚSQUEDA =====
+Estudiantes con poco sueño: 1
+Estudiantes con muchos ejercicios: 2
+Estudiantes con mucho estudio: 1
+Estudiantes con buenos hábitos: 2
