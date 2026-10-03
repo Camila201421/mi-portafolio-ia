@@ -4905,3 +4905,73 @@ Estudiantes con poco sueño: 1
 Estudiantes con muchos ejercicios: 2
 Estudiantes con mucho estudio: 1
 Estudiantes con buenos hábitos: 2
+Clase 53:
+>>> def ordenar_por_ejercicios(estudiantes):
+...     ordenados = sorted(estudiantes, key=la\
+mbda estudiantes: estudiante[2])
+...     return ordenados
+...
+>>> resultado  = ordenar_por_ejercicios(estudi\
+antes)
+>>> print("Ordenados por ejercicios:", resulta\
+do)
+Ordenados por ejercicios: [[6, 2, 20], [4, 8, 8], [7, 7, 12], [9, 9, 15]]
+
+>>> def ordenar_por_ejercicios_descendentes(es\
+tudiantes):
+...     ordenados = sorted(
+...         estudiantes,
+...         key=lambda estudiante: estudiante[\
+2],
+...         reverse=True
+...     )
+...     return ordenados
+...
+>>> resultado = ordenar_por_ejercicios_descend\
+entes(estudiantes)
+>>> print("De mayor a mebor:", resultado)
+De mayor a mebor: [[6, 2, 20], [9, 9, 15], [7, 7, 12], [4, 8, 8]]
+
+>>> def ordenar_por_estudio(estudiantes):
+...     ordenados = sorted(
+...         estudiantes,
+...         key=lambda estudiante: estudiante[\
+0]
+...     )
+...     return ordenados
+...
+>>> resultado = ordenar_por_estudio(estudiante\
+s)
+>>> print("Ordenados por estudio:", resultado)
+Ordenados por estudio: [[4, 8, 8], [6, 2, 20], [7, 7, 12], [9, 9, 15]]
+
+>>> def ordenar_por_sueno(estudiantes):
+...     ordenados = sorted(
+...         estudiantes,
+...         key=lambda estudiante: estudiante[\
+1]
+...     )
+...     return ordenados
+...
+>>> resultado = ordenar_por_sueno(estudiantes)
+>>> print("Ordenados por sueño:", resultado)
+Ordenados por sueño: [[6, 2, 20], [7, 7, 12], [4, 8, 8], [9, 9, 15]]
+
+>>> def imforme_ordenado(estudiantes):
+...     ordenados = ordenar_por_ejercicios_des\
+cendentes(estudiantes)
+...     print("===== ESTUDIANTES ORDENADOS ===\
+==")
+...     for estudiante in ordenados:
+...         print(
+...             "Estudio:", estudiante[0],
+...             "| Sueño:", estudiante[1],
+...             "| Ejercicios:", estudiante[2]
+...         )
+...
+>>> imforme_ordenado(estudiantes)
+===== ESTUDIANTES ORDENADOS =====
+Estudio: 6 | Sueño: 2 | Ejercicios: 20
+Estudio: 9 | Sueño: 9 | Ejercicios: 15
+Estudio: 7 | Sueño: 7 | Ejercicios: 12
+Estudio: 4 | Sueño: 8 | Ejercicios: 8
