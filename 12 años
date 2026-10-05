@@ -4975,3 +4975,85 @@ Estudio: 6 | Sueño: 2 | Ejercicios: 20
 Estudio: 9 | Sueño: 9 | Ejercicios: 15
 Estudio: 7 | Sueño: 7 | Ejercicios: 12
 Estudio: 4 | Sueño: 8 | Ejercicios: 8
+Clase 54:
+>>> def estudiante_menos_ejercicios(estudiante\
+s):
+...     menor = estudiantes[0]
+...     for estudiante in estudiantes:
+...         if estudiante[2] < menor[2]:
+...             menor = estudiante
+...     return menor
+...
+>>> resultado = estudiante_menos_ejercicios(es\
+tudiantes)
+>>> print("Menos ejercicios:", resultado)
+Menos ejercicios: [4, 8, 8]
+
+>>> def estudiante_mas_sueno(estudiantes):
+...     mayor = estudiantes[0]
+...     for estudiante in estudiantes:
+...         if resultado[1] > mayor[1]:
+...             mayor = estudiante
+...     return mayor
+...
+>>> resultado = estudiante_mas_sueno(estudiant\
+es)
+>>> print("Más horas de sueño:", resultado)
+Más horas de sueño: [4, 8, 8]
+
+>>> def estudiante_menos_sueno(estudiantes):
+...     menor = estudiantes[0]
+...     for estudiante in estudiantes:
+...         if estudiante[1] < menor[1]:
+...             menor = estudiante
+...     return menor
+...
+>>> resultado = estudiante_menos_sueno(estudia\
+ntes)
+>>> print("Menos horas de sueño:", resultado)
+Menos horas de sueño: [6, 2, 20]
+
+>>> def estudiante_mas_estudio_info(estudiante\
+s):
+...     mayor = estudiantes[0]
+...     for estudiante in estudiantes:
+...         if estudiante[0] > mayor[0]:
+...             mayor = estudiante
+...     return mayor
+...
+>>> resultado = estudiante_mas_estudio_info(es\
+tudinates)
+>>> print("Más horas de estudio:", resultado)
+Más horas de estudio: [9, 9, 15]
+
+>>> def estudiante_menos_estudio(estudiantes):
+...     menor = estudiantes[0]
+...     for estudiante in estudiantes:
+...         if estudiante[0] < menor[0]:
+...             menor = estudiante
+...     return menor
+...
+>>> def resumen_extremos(estudiantes):
+...     print("===== RESUMEN DE EXTREMOS =====\
+")
+...     print("Más estudio:", estudiante_mas_e\
+studio_info(estudiantes))
+...     print("Menos estudio:", estudiante_men\
+os_estudio(estudiantes))
+...     print("Más sueño:", estudiante_mas_sue\
+no(estudiantes))
+...     print("Menos sueño:", estudiante_menos\
+_sueno(estudiantes))
+...     print("Más ejercicios:", estudiante_ma\
+s_ejercicios(estudiantes))
+...     print("Menos ejercicios:", estudiante_\
+menos_ejercicios(estudiantes))
+...
+>>> resumen_extremos(estudiantes)
+===== RESUMEN DE EXTREMOS =====
+Más estudio: [9, 9, 15]
+Menos estudio: [4, 8, 8]
+Más sueño: [9, 9, 15]
+Menos sueño: [6, 2, 20]
+Más ejercicios: [6, 2, 20]
+Menos ejercicios: [4, 8, 8]
