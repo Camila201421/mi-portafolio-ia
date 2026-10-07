@@ -5057,3 +5057,222 @@ Más sueño: [9, 9, 15]
 Menos sueño: [6, 2, 20]
 Más ejercicios: [6, 2, 20]
 Menos ejercicios: [4, 8, 8]
+Clase 55:
+>>> def porcentaje_buenos_habitos(estudinates)\
+:
+...     buenos = contar_buenos_habitos(estudia\
+ntes)
+...     total = len(estudiantes)
+...     porncentaje = (buenos / total) * 100
+...     return procentaje
+...
+>>> resultado = porcentaje_buenos_habitos(estu\
+diantes)
+>>> print("Porcentaje de buenos hábitos:", res\
+ultado, "%")
+Porcentaje de buenos hábitos: 50.0 %
+
+>>> def porcentaje_necesitan_mejorar(estudiant\
+es):
+...     mejorar = contar_necesitan_mejorar(est\
+udiantes)
+...     total = len(estudiantes)
+...     porcentaje = (mejorar / total) * 100
+...     return porcentaje
+>>> resultado = porcentaje_necesitan_mejorar(e\
+studiantes)
+>>> print("Porcentaje que necesita mejorar:", \
+resultado, "%")
+Porcentaje que necesita mejorar: 50.0 %
+
+>>> def mostrar_porcentaje_buenos(estudiantes)\
+:
+...     buenos = contar_buenos_habitos(estudia\
+ntes)
+...     total = len(estudiantes)
+...     porcentaje = (buenos / total) * 100
+...     print("Buenos hábitos:", porcentaje, "\
+%")
+...
+>>> mostrar_porcentaje_buenos(estudiantes)
+Buenos hábitos: 50.0 %
+
+>>> def mostrar_porcentaje_buenos(estudiantes)\
+:
+...     buenos = contar_buenos_habitos(estudia\
+ntes)
+...     total = len(estudiantes)
+...     porcentaje = (buenos / total) * 100
+...     print("Buenos hábitos:", porcentaje, "\
+%")
+...
+>>> mostrar_porcentaje_buenos(estudiantes)
+Buenos hábitos: 50.0 %
+
+>>> def imforme_porcentajes(estudiantes):
+...     buenos = porcentaje_buenos_habitos(est\
+udiantes)
+...     mejorar = porcentaje_necesitan_mejorar\
+(estudiantes)
+...     print("===== IMFORME DE PORCENTAJES ==\
+==")
+...     print("Buenos hábitos:", buenos, "%")
+...     print("Necesitan mejorar:", mejorar, "\
+%")
+...
+>>> imforme_porcentajes(estudiantes)
+===== IMFORME DE PORCENTAJES ====
+Buenos hábitos: 50.0 %
+Necesitan mejorar: 50.0 %
+
+>>> def informe_completo(estudiantes):
+...     total = len(estudiantes)
+...     buenos = contar_buenos_habitos(estudia\
+ntes)
+...     mejorar = contar_necesitan_mejorar(est\
+udiantes)
+...     porcentaje_buenos = porcentaje_buenos_\
+habitos(estudiantes)
+...     porcentaje_mejorar = porcentaje_necesi\
+tan_mejorar(estudiantes)
+...     print("===== IMFORME COMPLETO =====")
+...     print("Total de estudiantes:", total)
+...     print("Buenos hábitos:", buenos)
+...     print("Necesitan mejorar:", mejorar)
+...     print("Porcentaje de buenos hábitos:",\
+ porcentaje_buenos, "%")
+...     print("Porcentaje que necesita mejorar\
+:", porcentaje_mejorar, "%")
+...
+>>> informe_completo(estudiantes)
+===== IMFORME COMPLETO =====
+Total de estudiantes: 4
+Buenos hábitos: 2
+Necesitan mejorar: 2
+Porcentaje de buenos hábitos: 50.0 %
+Porcentaje que necesita mejorar: 50.0 %
+Clase 56:
+>>> def evaluar_grupo(estudiantes):
+...     porcentaje = porcentaje_buenos_habitos\
+(estudiantes)
+...     if porcentaje >= 75:
+...         print("El grupo tiene hábitos exce\
+lentes.")
+...     elif porcentaje >= 50:
+...         print("el grpu tiene hábitos acept\
+able.")
+...     else:
+...         print("El grupo necesita mejorar."\
+)
+...
+>>> evaluar_grupo(estudiantes)
+el grpu tiene hábitos aceptable.
+
+>>> def detectar_mayoria(estudiantes):
+...     buenos = contar_buenos_habitos(estudia\
+ntes)
+...     mejorar = contar_necesitan_mejorar(est\
+udiantes)
+...     if buenos > mejorar:
+...         print("Hay más estudiantes con bue\
+nos hábitos.")
+...     elif mejorar > buenos:
+...         print("Hay más estudiantes que nec\
+esitan mejorar.")
+...     else:
+...         print("Hay la misma cantidad de es\
+tudiantes en ambos grupos.")
+...
+>>> detectar_mayoria(estudiantes)
+Hay la misma cantidad de estudiantes en ambos grupos.
+
+>>> def nivel_grupo(estudiantes):
+...     procentaje = porcentaje_buenos_habitos\
+(estudiantes)
+...     if porcentaje >= 75:
+...         return "Excelente"
+...     elif porcentaje >= 50:
+...         return "Aceptable"
+...     else:
+...         return "Necesita mejorar"
+...
+>>> resultado = nivel_grupo(estudiantes)
+>>> print("Nivel del grupo:", resultado)
+Nivel del grupo: Excelente
+
+>>> def nivel_grupo(estudiantes):
+...     porcentaje = porcentaje_buenos_habitos\
+(estudiantes)
+...
+...     if porcentaje >= 75:
+...         return "Excelente"
+...     elif porcentaje >= 50:
+...         return "Aceptable"
+...     else:
+...         return "Necesita mejorar"
+...
+>>> resultado = nivel_grupo(estudiantes)
+>>> print("Nivel del grupo:", resultado)
+Nivel del grupo: Aceptable
+
+>>> def mensaje_grupo(estudiantes):
+...     nivel = nivel_grupo(estudiantes)
+...
+...     print("===== ANÁLISIS INTELIGENTE ====\
+=")
+...     print("Nivel:", nivel)
+...
+...     if nivel == "Excelente":
+...         print("¡Excelente trabajo!")
+...     elif nivel == "Aceptable":
+...         print("El grupo va bien, pero pued\
+e mejorar.")
+...     else:
+...         print("El grupo necesita mejorar s\
+us hábitos.")
+...
+>>> mensaje_grupo(estudiantes)
+===== ANÁLISIS INTELIGENTE =====
+Nivel: Aceptable
+El grupo va bien, pero puede mejorar.
+
+>>> def informe_inteligente(estudiantes):
+...     total = len(estudiantes)
+...     buenos = contar_buenos_habitos(estudia\
+ntes)
+...     mejorar = contar_necesitan_mejorar(est\
+udiantes)
+...     porcentaje_buenos = porcentaje_buenos_\
+habitos(estudiantes)
+...     porcentaje_mejorar = porcentaje_necesi\
+tan_mejorar(estudiantes)
+...     nivel = nivel_grupo(estudiantes)
+...     print("===== INFORME INTELIGENTE =====\
+")
+...     print("Total de estudiantes:", total)
+...     print("Buenos hábitos:", buenos)
+...     print("Necesitan mejorar:", mejorar)
+...     print("Porcentaje de buenos hábitos:",\
+ porcentaje_buenos, "%")
+...     print("Porcentaje que necesita mejorar\
+:", porcentaje_mejorar, "%")
+...     print("Nivel del grupo:", nivel)
+...     if nivel == "Excelente":
+...         print("Conclusión: ¡Excelente trab\
+ajo!")
+...     elif nivel == "Aceptable":
+...         print("Conclusión: El grupo va bie\
+n, pero puede mejorar.")
+...     else:
+...         print("Conclusión: El grupo necesi\
+ta mejorar.")
+...
+>>> informe_inteligente(estudiantes)
+===== INFORME INTELIGENTE =====
+Total de estudiantes: 4
+Buenos hábitos: 2
+Necesitan mejorar: 2
+Porcentaje de buenos hábitos: 50.0 %
+Porcentaje que necesita mejorar: 50.0 %
+Nivel del grupo: Aceptable
+Conclusión: El grupo va bien, pero puede mejorar.
