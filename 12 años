@@ -5276,3 +5276,104 @@ Porcentaje de buenos hábitos: 50.0 %
 Porcentaje que necesita mejorar: 50.0 %
 Nivel del grupo: Aceptable
 Conclusión: El grupo va bien, pero puede mejorar.
+Clase 57:
+>>> def recomendar_estudiante(estudiante):
+...     estudio = estudiante[0]
+...     sueno = estudiante[1]
+...     ejercicios = estudiante[2]
+...     if estudio < 6:
+...         return "Necesita estudiar más."
+...     elif sueno < 7:
+...         return "Necesita dormir más."
+...     elif ejercicios < 10:
+...         return "Necesita hacer más ejercic\
+ios."
+...     else:
+...         return "Tiene buenos hábitos."
+...
+>>> print(recomendar_estudiante([6, 2, 20]))
+... print(recomendar_estudiante([4, 8, 8]))
+... print(recomendar_estudiante([7, 7, 12]))
+... print(recomendar_estudiante([9, 9, 15]))
+...
+Necesita dormir más.
+Necesita estudiar más.
+Tiene buenos hábitos.
+Tiene buenos hábitos.
+
+>>> def mostrar_recomendaciones(estudiantes):
+...     print("===== RECOMENDACIONES =====")
+...     for estudiante in estudiantes:
+...        recomendacion = recomendar_estudian\
+te(estudiante)
+...        print(estudiante, "→", recomendacio\
+n)
+...
+>>> mostrar_recomendaciones(estudiantes)
+===== RECOMENDACIONES =====
+[6, 2, 20] → Necesita estudiar más.
+[4, 8, 8] → Necesita estudiar más.
+[7, 7, 12] → Necesita estudiar más.
+[9, 9, 15] → Necesita estudiar más.
+
+>>> def contar_necesitan_recomendacion(estudia\
+ntes):
+...     contador = 0
+...     for estudiante in estudiantes:
+...         recomendacion = recomendar_estudia\
+nte(estudiante)
+...         if recomendacion != "Tiene buenos \
+hábitos.":
+...             contador += 1
+...     return contador
+...
+>>> resultado = contar_necesitan_recomendacion\
+(estudiantes)
+>>> print("Estudiantes que necesitan mejorar:"\
+, resultado)
+Estudiantes que necesitan mejorar: 2
+
+>>> def mostrar_necesitan_mejorar(estudiantes)\
+:
+...     print("===== ESTUDIANTES QUE NECESITAN\
+ MEJORAR =====")
+...     for estudiante in estudiantes:
+...         recomendacion = recomendar_estudia\
+nte(estudiante)
+...         if recomendacion != "Tiene buenos \
+hábitos.":
+...             print(estudiante, "→", recomen\
+dacion)
+...
+>>> mostrar_necesitan_mejorar(estudiantes)
+===== ESTUDIANTES QUE NECESITAN MEJORAR =====
+[6, 2, 20] → Necesita dormir más.
+[4, 8, 8] → Necesita estudiar más.
+
+>>> def imforme_recomendaciones(Estudiantes):
+...     total = len(estudiantes)
+...     necesitan = contar_necesitan_recomenda\
+cion(estudiantes)
+...     buenos = total - necesitan
+...     print("===== INFORME DE RECOMENDACIONE\
+S =====")
+...     print("Total de estudiantes:", total)
+...     print("Con buenos hábitos:", buenos)
+...     print("Necesitan mejorar:", necesitan)
+...     if necesitan == 0:
+...         print("Conclusión: Todos tienen bu\
+enos hábitos.")
+...     elif necesitan == total:
+...         print("Conclusión: Todos necesitan\
+ mejorar.")
+...     else:
+...         print("conclusión: Algunos estudia\
+ntes pueden mejorar.")
+...
+>>> imforme_recomendaciones(estudiantes)
+===== INFORME DE RECOMENDACIONES =====
+Total de estudiantes: 4
+Con buenos hábitos: 2
+Necesitan mejorar: 2
+conclusión: Algunos estudiantes pueden mejorar.
+Clase 58
