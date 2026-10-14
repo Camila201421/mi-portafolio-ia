@@ -5376,4 +5376,137 @@ Total de estudiantes: 4
 Con buenos hábitos: 2
 Necesitan mejorar: 2
 conclusión: Algunos estudiantes pueden mejorar.
-Clase 58
+Clase 58 CAMBIO CON GEMINI
+>>> estudiante = {
+...     "nombre": "Carlos",
+...     "estudio": 6,
+...     "sueno": 2,
+...     "ejercicios": 20
+... }
+... print(estudiante["nombre"])
+... print(estudiante["estudio"])
+...
+Carlos
+6
+>>> estudiantes = [
+...     {"nombre": "Ana", "estudio": 6, "sueno\
+": 2, "ejercicios": 20},
+...     {"nombre": "Luis", "estudio": 4, "suen\
+o": 8, "ejercicios": 8},
+...     {"nombre": "Sofía", "estudio": 7, "sue\
+no": 7, "ejercicios": 12},
+...     {"nombre": "Marcos", "estudio": 9, "ej\
+ercicios": 15}
+... ]
+>>> def recomendar_estudiante(estudiantes):
+...     estudio = estudiante["estudio"]
+...     sueno = estudiante["sueno"]
+...     ejercicios = estudiante["ejercicios"]
+...     if estudio < 6:
+...         return "Necesita estudiar más."
+...     elif sueno < 7:
+...         return "Necesita hacer más ejercicios."
+...     elif ejercicios < 10:
+...         return "Necesita hacer más ejercicios."
+...     else:
+...         return "Tiene buenos hábitos."
+...
+>>> alumno_prueba = {
+...     "nombre": "Ana",
+...     "estudio": 6,
+...     "sueno": 2,
+...     "ejercicios": 20
+... }
+>>> resultado = recomendar_estudiante(alumno_prueba\
+)
+>>> print(alumno_prueba["nombre"], "→", resultado)
+Ana → Necesita hacer más ejercicios.
+
+>>> estudiantes = [
+...     {"nombre": "Ana", "estudio": 6, "sueno": 2,\
+ "ejercicios": 20},
+...     {"nombre": "Luis", "estudio": 4, "sueno": 8\
+, "ejercicios": 8},
+...     {"nombre": "Sofía", "estudio": 7, "sueno": \
+7, "ejercicios": 12},
+...     {"nombre": "Marcos", "estudio": 9, "sueno":\
+ 9, "ejercicios": 15}
+... ]
+>>> def recomendar_estudiante(estudiante):
+...     estudio = estudiante["estudio"]
+...     sueno = estudiante["sueno"]
+...     ejercicios = estudiante["ejercicios"]
+...
+...     if estudio < 6:
+...         return "Necesita estudiar más."
+...     elif sueno < 7:
+...         return "Necesita dormir más."
+...     elif ejercicios < 10:
+...         return "Necesita hacer más ejercicios."\
+
+...     else:
+...         return "Tiene buenos hábitos."
+...
+>>> def mostrar_recomendaciones(estudiantes):
+...     print("===== RECOMENDACIONES =====")
+...     for estudiante in estudiantes:
+...         recomendacion = recomendar_estudiante(e\
+studiante)
+...         print(estudiante["nombre"], "→", recome\
+ndacion)
+...
+>>> mostrar_recomendaciones(estudiantes)
+===== RECOMENDACIONES =====
+Ana → Necesita dormir más.
+Luis → Necesita estudiar más.
+Sofía → Tiene buenos hábitos.
+Marcos → Tiene buenos hábitos.
+
+>>> def contar_necesitan_recomendacion(estudiantes)\
+:
+...     contador = 0
+...     for estudiante in estudiantes:
+...         recomendacion = recomendar_estudiante(e\
+studiante)
+...         if recomendacion != "Tiene buenos hábit\
+os.":
+...             contador += 1
+...
+...     return contador
+...
+>>> resultado = contar_necesitan_recomendacion(estu\
+diantes)
+>>> print("Estudiantes que necesitan mejorar:", res\
+ultado)
+Estudiantes que necesitan mejorar: 2
+🏛️ Clase 59: Introducción a la Programación Orientada a Objetos (POO) y las Clases
+>>> class Estudiante:
+...     def __init__(self, nombre, estudio, sueno, \
+ejercicios):
+...         self.nombre = nombre
+...         self.estudio = estudio
+...         self.sueno = sueno
+...         self.ejercicios = ejercicios
+...     def recomendar(self):
+...         if self.estudio < 6:
+...             return "Necesita estudiar más."
+...         elif self.sueno < 7:
+...             return "Necesita dormir más."
+...         elif self.ejercicios < 10:
+...             return "Necesita hacer más ejercici\
+os."
+...         else:
+...             return "Tiene buenos hábitos."
+...
+>>> alumno1 = Estudiante("Ana", 6, 2, 20)
+>>> alumno2 = Estudiante("Luis", 4, 8, 8)
+>>> print(alumno1.nombre, "→", alumno1.recomendar()\
+)
+Ana → Necesita dormir más.
+>>> print(alumno2.nombre, "→", alumno2.recomendar()\
+)
+Luis → Necesita estudiar más.
+->>> alumno3 = Estudiante("Sofía", 7, 7, 12)
+>>> print(alumno3.nombre, "→", alumno3.recomendar()\
+)
+Sofía → Tiene buenos hábitos.
