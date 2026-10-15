@@ -5510,3 +5510,38 @@ Luis → Necesita estudiar más.
 >>> print(alumno3.nombre, "→", alumno3.recomendar()\
 )
 Sofía → Tiene buenos hábitos.
+⚙️ Clase 60: Modificando el Estado de un Objeto (Mutabilidad)
+>>> class Estudiante:
+...     def __init__(self, nombre, estudio, sueno, \
+ejercicios):
+...         self.nombre = nombre
+...         self.estudio = estudio
+...         self.sueno = sueno
+...         self.ejercicios = ejercicios
+...
+...     def recomendar(self):
+...         if self.estudio < 6:
+...             return "Necesita estudiar más."
+...         elif self.sueno < 7:
+...             return "Necesita dormir más."
+...         elif self.ejercicios < 10:
+...             return "Necesita hacer más ejercici\
+os."
+...         else:
+...             return "Tiene buenos hábitos."
+...
+...     def sumar_estudio(self, horas):
+...         self.estudio += horas
+...         print(f"¡Genial! {self.nombre} ha sumad\
+o {horas} horas de estudio.")
+...
+>>> alumno2 = Estudiante("Luis", 4, 8, 12)
+>>> print(alumno2.nombre, "→", alumno2.recomendar()\
+)
+Luis → Necesita estudiar más.
+>>> alumno2.sumar_estudio(3)
+¡Genial! Luis ha sumado 3 horas de estudio.
+>>> print(alumno2.nombre, "→", alumno2.recomendar()\
+)
+Luis → Tiene buenos hábitos.
+
