@@ -5544,4 +5544,21 @@ Luis → Necesita estudiar más.
 >>> print(alumno2.nombre, "→", alumno2.recomendar()\
 )
 Luis → Tiene buenos hábitos.
-
+🏛️ Clase 61: Herencia en la Programación Orientada a Objetos (POO)
+>>> class EstudianteBecario(Estudiante):
+...     def __init__(self, nombre, estudio, sueno, \
+ejercicios, monton_beca):
+...         super().__init__(nombre, estudio, sueno\
+, ejercicios)
+...         self.monton_beca = monton_beca
+...     def info_beca(self):
+...         return f"{self.nombre} recibe una beca \
+de {self.monton_beca}€ al mes."
+...
+>>> becario1 = EstudianteBecario("Lucía", 8, 8, 15,\
+ 500)
+>>> print(becario1.nombre, "→", becario1.recomendar\
+())
+Lucía → Tiene buenos hábitos.
+>>> print(becario1.info_beca())
+Lucía recibe una beca de 500€ al mes.
