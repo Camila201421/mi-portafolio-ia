@@ -5557,8 +5557,38 @@ de {self.monton_beca}€ al mes."
 ...
 >>> becario1 = EstudianteBecario("Lucía", 8, 8, 15,\
  500)
->>> print(becario1.nombre, "→", becario1.recomendar\
-())
+>>> print(becario1.nombre, "→", becario1.recomendar())
 Lucía → Tiene buenos hábitos.
 >>> print(becario1.info_beca())
 Lucía recibe una beca de 500€ al mes.
+🏛️ Clase 62: Sobrescritura de Métodos (Method Overriding)
+>>> class EstudianteBecario(Estudiante):
+...     def __init__(self, nombre, estudio, sueno, \
+ejercicios, monton_beca):
+...         super ().__init__(nombre, estudio, suen\
+o, ejercicios)
+...         self.monton_beca = monton_beca
+...     def info_beca(self):
+...         return f"{self.nombre}  recibe una beca\
+ de {self.monton_beca}€ al mes."
+...     def recomendar(self):
+...         if self.estudio < 7:
+...             return "Becario: ¡Estudio insuficie\
+nte! Debe pasar de 7 horas."
+...         elif self.sueno < 7:
+...              return "Necesita dormir más."
+...         elif self.ejercicios < 10:
+...             return "Necesita hacer más ejercici\
+os."
+...         else: return "Tiene buenos hábitos de b\
+ecario."
+...
+>>> alumno_normal = Estudiante("Carlos", 6, 8, 12)
+>>> print(alumno_normal.nombre, "→", alumno_normal.\
+recomendar())
+Carlos → Tiene buenos hábitos.
+>>> becario_nuevo = EstudianteBecario("Lucía", 6, 8\
+, 12, 500)
+>>> print(becario_nuevo.nombre, "→", becario_nuevo.\
+recomendar())
+Lucía → Becario: ¡Estudio insuficiente! Debe pasar de 7 horas.
