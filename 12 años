@@ -5592,3 +5592,34 @@ Carlos → Tiene buenos hábitos.
 >>> print(becario_nuevo.nombre, "→", becario_nuevo.\
 recomendar())
 Lucía → Becario: ¡Estudio insuficiente! Debe pasar de 7 horas.
+🏛️ Clase 63: Encapsulamiento y Atributos Privados
+>>> class EstudianteSeguro:
+...     def __init__(self, nombre, estudio, sueno, \
+ejercicios):
+...         self.nombre = nombre
+...         self.__estudio = estudio
+...         self.sueno = sueno
+...         self.ejercicios = ejercicios
+...     def obtener_estudio(self):
+...         return self.__estudio
+...     def cambiar_estudio(self, nuevas_horas):
+...         if nuevas_horas >= 0:
+...             self.__estudio = nuevas_horas
+...             print(f"Estudio actualizado correct\
+amente a {nuevas_horas} horas.")
+...         else:
+...             print("❌ Error: NO puedes poner ho\
+ras de estudio negativas.")
+...
+>>> alumno_bueno = EstudianteSeguro("Lola", 7, 8 ,1\
+2)
+>>> print("Horas actuales:", alumno_bueno.obtener_e\
+studio())
+Horas actuales: 7
+>>> alumno_bueno.cambiar_estudio(-1000)
+❌ Error: NO puedes poner horas de estudio negativas.
+>>> alumno_bueno.cambiar_estudio(20)
+Estudio actualizado correctamente a 20 horas.
+>>> print("Nuevas horas:", alumno_bueno.obtener_est\
+udio())
+Nuevas horas: 20
