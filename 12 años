@@ -5623,3 +5623,34 @@ Estudio actualizado correctamente a 20 horas.
 >>> print("Nuevas horas:", alumno_bueno.obtener_est\
 udio())
 Nuevas horas: 20
+🏛️ Clase 64: Propiedades y Getters/Setters modernos con @property
+>>> class EstudiantePro:
+...     def __init__(self, nombre, estudio, sueno, \
+ejercicios):
+...         self.nombre = nombre
+...         self.__estudio = estudio
+...         self.sueno = sueno
+...         self.ejercicios = ejercicios
+...     @property
+...     def estudio(self):
+...         return self.__estudio
+...     @estudio.setter
+...     def estudio(self, nuevas_horas):
+...         if nuevas_horas >= 0:
+...             self.__estudio = nuevas_horas
+...             print(f"✅ Estudio actualizada corr\
+ectamente a {nuevas_horas} horas.")
+...         else:
+...             print("❌ Error: No puedes poner ho\
+ras de estudio negativas.")
+...
+>>> alumno = EstudiantePro("Daniel", 6, 8, 15)
+>>> print("Horas de estudio:", alumno.estudio)
+Horas de estudio: 6
+>>> alumno.estudio = -5
+❌ Error: No puedes poner horas de estudio negativas.
+>>> alumno.estudio = 9
+✅ Estudio actualizada correctamente a 9 horas.
+>>> print("Nuevas horas de estudio:", alumno.estudi\
+o)
+Nuevas horas de estudio: 9
