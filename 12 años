@@ -5654,3 +5654,27 @@ Horas de estudio: 6
 >>> print("Nuevas horas de estudio:", alumno.estudi\
 o)
 Nuevas horas de estudio: 9
+🏛️ Clase 65: Métodos Mágicos o "Dunder Methods" (__str__)
+>>> class EstudianteMagico:
+...     def __init__(self, nombre, estudio, sueno, \
+ejercicios):
+...         self.nombre = nombre
+...         self.estudio = estudio
+...         self.sueno = sueno
+...         self.ejercicios = ejercicios
+...     def __str__(self):
+...         return f"Estudiante: {self.nombre} | Es\
+tudio: {self.estudio}h | Sueño: {self.sueno}h"
+...     def recomendar(self):
+...         if self.estudio < 6:
+...             return "Neceesita estudiar más."
+...         else:
+...             return "Tiene buenos hábitos."
+...
+>>> alumno = EstudianteMagico("Sofía", 7, 8, 12)
+>>> print(alumno)
+Estudiante: Sofía | Estudio: 7h | Sueño: 8h
+>>> alumno = EstudianteMagico("Camila", 78, 12, 67)
+>>> print(alumno)
+
+Estudiante: Camila | Estudio: 78h | Sueño: 12h
