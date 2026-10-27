@@ -5678,3 +5678,38 @@ Estudiante: Sofía | Estudio: 7h | Sueño: 8h
 >>> print(alumno)
 
 Estudiante: Camila | Estudio: 78h | Sueño: 12h
+⚡ Clase Flash: Todo junto en una sola "Súper Clase"
+>>> class EstudianteMaster:
+...     def __init__(self, nombre, estudio):
+...         self.nombre = nombre
+...         self.__estudio = estudio
+...     @property
+...     def estudio(self):
+...         return self.__estudio
+...     @estudio.setter
+...     def estudio(self, nuevas_horas):
+...         if nuevas_horas >= 0:
+...             self.__estudio = nuevas_horas
+...             print(f"✅ Horas actualizadas a {nu\
+evas_horas}")
+...         else:
+...             print("❌ Error: No se permiten hor\
+as negativas.")
+...     def __str__(self):
+...         return f"Alumno Pro: {self.nombre} | Es\
+tudio: {self.__estudio}h"
+...     def recomendar(self):
+...         if self.__estudio < 6:
+...             return "Necesitan ponerse las pilas\
+."
+...         return "¡Excelente ritmo de estudio!"
+...
+>>> alumno_rapido = EstudianteMaster("Alex", 5)
+>>> print(alumno_rapido)
+Alumno Pro: Alex | Estudio: 5h
+>>> print("Estudio actual:", alumno_rapido.estudio)
+Estudio actual: 5
+>>> alumno_rapido.estudio = 8
+✅ Horas actualizadas a 8
+>>> print(alumno_rapido.recomendar())
+¡Excelente ritmo de estudio!
