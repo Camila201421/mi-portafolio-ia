@@ -5713,3 +5713,52 @@ Estudio actual: 5
 ✅ Horas actualizadas a 8
 >>> print(alumno_rapido.recomendar())
 ¡Excelente ritmo de estudio!
+🏛️ Clase 66: Métodos de Clase y Estáticos (@classmethod y @staticmethod)
+>>> @classmethod
+... def desde_texto(cls, texto_csv):
+...     nombre, estudio_str = texto_csv.split(",")
+...     return cls(nombre, int(estudio_str))
+...
+>>> @staticmethod
+... def es_estudio_suficiente(horas):
+...     return horas >= 6
+...
+
+>>> class EstudianteAvanzado:
+...     def __init__(self, nombre, estudio):
+...         self.nombre = nombre
+...         self.__estudio = estudio
+...     @property
+...     def estudio(self):
+...         return self.__estudio
+...     @estudio.setter
+...     def estudio(self, nuevas_horas):
+...         if nuevas_horas >= 0:
+...             self.__estudio = nuevas_horas
+...             print(f"✅ Horas actualizadas a {nu\
+evas_horas}")
+...         else:
+...             print("❌ Error: No se permiten hor\
+as negativas.")
+...     def __str__(self):
+...         return f"Estudiante: {self.nombre} | Es\
+tudio:{self.__estudio}h"
+...     @classmethod
+...     def desde_texto(cls, texto_csv):
+...         nombre, estudio_str = texto_csv.split("\
+,")
+...         return cls(nombre, int(estudio_str))
+...     @staticmethod
+...     def es_estudio_suficiente(horas):
+...         return horas >= 6
+...
+>>> alumno_nuevo = EstudianteAvanzado.desde_texto("\
+Lucia,8")
+>>> print(alumno_nuevo)
+Estudiante: Lucia | Estudio:8h
+>>> print("¿Son suficientes 4 horas?", EstudianteAv\
+anzado.es_estudio_suficiente(4))
+¿Son suficientes 4 horas? False
+>>> print("¿Son suficientes 7 horas?", EstudianteAv\
+anzado.es_estudio_suficiente(7))
+¿Son suficientes 7 horas? True
