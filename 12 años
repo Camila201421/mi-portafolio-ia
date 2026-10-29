@@ -5762,3 +5762,31 @@ anzado.es_estudio_suficiente(4))
 >>> print("¿Son suficientes 7 horas?", EstudianteAv\
 anzado.es_estudio_suficiente(7))
 ¿Son suficientes 7 horas? True
+🏛️ Clase 67: Composición de Clases (Relaciones "Tiene un")
+>>> class Curso:
+...     def __init__(self, nombre_curso):
+...         self.nombre_curso = nombre_curso
+...         self.estudiantes = []
+...     def agregar_estudiante(self, estudiante):
+...         self.estudiantes.append(estudiante)
+...         print(f"✅ {estudiante.nombre} matricul\
+ado en {self.nombre_curso}.")
+...     def mostrar_alumnos(self):
+...         print(f"\n--- Lumnos del curso_{self.no\
+mbre_curso} ---")
+...         for alumno in self.estudiantes:
+...             print(alumno)
+...
+>>> curso_python = Curso("Python para MLOps")
+>>> alumno1 = EstudianteAvanzado("Sofía", 7)
+>>> alumno2 = EstudianteAvanzado.desde_texto("Marco\
+s,9")
+>>> curso_python.agregar_estudiante(alumno1)
+✅ Sofía matriculado en Python para MLOps.
+>>> curso_python.agregar_estudiante(alumno2)
+✅ Marcos matriculado en Python para MLOps.
+>>> curso_python.mostrar_alumnos()
+
+--- Lumnos del curso_Python para MLOps ---
+Estudiante: Sofía | Estudio:7h
+Estudiante: Marcos | Estudio:9h
