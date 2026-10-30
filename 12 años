@@ -5790,3 +5790,36 @@ s,9")
 --- Lumnos del curso_Python para MLOps ---
 Estudiante: Sofía | Estudio:7h
 Estudiante: Marcos | Estudio:9h
+🏛️ Clase 68: Más Magia para Colecciones (__len__ e Iteración)
+>>> class CursoPro:
+...     def __init__(self, nombre_curso):
+...         self.nombre_curso = nombre_curso
+...         self.estudiantes = []
+...     def agregar_estudiante(self, estudiante):
+...         self.estudiantes.append(estudiante)
+...         print(f"✅ {estudiante.nombre} matrcula\
+do en {self.nombre_curso}.")
+...     def __len__(self):
+...         return len(self.estudiantes)
+...     def __iter__(self):
+...         return iter(self.estudiantes)
+...     def __str__(self):
+...         return f"Curso: {self.nombre_curso} ({l\
+en(self.estudaintes)} alumno)"
+...
+>>> mi_curso = CursoPro("Arquitectura Python")
+>>> mi_curso.agregar_estudiante(EstudianteAvanzado(\
+"Carlos", 8))
+✅ Carlos matrculado en Arquitectura Python.
+>>> mi_curso.agregar_estudiante(EstudianteAvanzado.\
+desde_texto("Elena,9"))
+✅ Elena matrculado en Arquitectura Python.
+>>> print("\n--- Recorriendo el curso directamente \
+---")
+... for alumno in mi_curso:
+...    print(alumno)
+...
+
+--- Recorriendo el curso directamente ---
+Estudiante: Carlos | Estudio:8h
+Estudiante: Elena | Estudio:9h
