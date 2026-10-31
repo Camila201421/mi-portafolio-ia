@@ -5823,3 +5823,35 @@ desde_texto("Elena,9"))
 --- Recorriendo el curso directamente ---
 Estudiante: Carlos | Estudio:8h
 Estudiante: Elena | Estudio:9h
+🏛️ Clase 69: Excepciones Personalizadas (Custom Errors)
+>>> class EstudianteDuplicadoError(Exception):
+...    pass
+...
+>>> class CursoRobust:
+...    def __init__(self, nombre_curso):
+...       self.nombre_curso = nombre_curso
+...       self.estudiantes = []
+...    def agregar_estudiante(self, estudiante):
+...       for alumno in self.estudiantes:
+...          if alumno.nombre == estudiante.nombre:
+...             raise EstudianteDuplicadoError(f"El\
+ estudiante '{estudiante.nombre}' ya está matricula\
+do en {self.nombre_curso}.")
+...       self.estudiantes.append(estudiante)
+...       print(f"✅ {estudiante.nombre} matriculad\
+o con éxito.")
+...    def __len__(self):
+...       return len(self.estudiantes)
+...    def __iter__(self):
+...       return iter(self.estudiantes)
+...
+>>> curso_mlops = CursoRobust("MLOps Avanzado")
+>>> alumno_test = EstudianteAvanzado("Sofía", 8)
+>>> curso_mlops.agregar_estudiante(alumno_test)
+✅ Sofía matriculado con éxito.
+>>> try:
+...    curso_mlops.agregar_estudiante(alumno_test)
+... except EstudianteDuplicadoError as e:
+...    print(f"⚠️ Alerta capturada: {e}")
+...
+⚠️ Alerta capturada: El estudiante 'Sofía' ya está matriculado en MLOps Avanzado
