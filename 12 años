@@ -5855,3 +5855,22 @@ o con éxito.")
 ...    print(f"⚠️ Alerta capturada: {e}")
 ...
 ⚠️ Alerta capturada: El estudiante 'Sofía' ya está matriculado en MLOps Avanzado
+🏛️ Clase 70: Clases Abstractas e Interfaces (abc)
+>>> class UsuarioBase(ABC):
+...     def __init__(self, nombre):
+...         self.nombre = nombre
+...     @abstractmethod
+...     def presentarse(self):
+...         pass
+...
+>>> class EstudianteOficial(UsuarioBase):
+...     def __init__(self, nombre, estudio):
+...         super().__init__(nombre)
+...         self.estudio = estudio
+...     def presentarse(self):
+...         return f"Hola, soy el estudiante {self.n\
+ombre} y estudio {self.estudio} horas."
+...
+>>> alumno_oficial = EstudianteOficial("Ana", 7)
+>>> print(alumno_oficial.presentarse())
+Hola, soy el estudiante Ana y estudio 7 horas.
