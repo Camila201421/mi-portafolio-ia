@@ -5874,3 +5874,45 @@ ombre} y estudio {self.estudio} horas."
 >>> alumno_oficial = EstudianteOficial("Ana", 7)
 >>> print(alumno_oficial.presentarse())
 Hola, soy el estudiante Ana y estudio 7 horas.
+🏛️ Clase 71: Dataclasses (@dataclass)
+>>> from dataclasses import dataclass
+>>> @dataclass
+... class DatasetConfig:
+...     nombre_experimento: str
+...     epochs: int
+...     learning_rate: float = 0.001
+...
+>>> config = DatasetConfig(nombre_experimento="Model\
+o_Churn", epochs=50)
+>>> print(config)
+DatasetConfig(nombre_experimento='Modelo_Churn', epochs=50, learning_rate=0.001)
+>>> print(f"Experimento: {config.nombre_experimento}\
+ | LR: {config.learning_rate}")
+Experimento: Modelo_Churn | LR: 0.001
+🏛️ Clase 72: Superando las Dataclasses (__post_init__ y frozen)
+>>> @dataclass(frozen=True)
+... class ConfigSegura:
+...     modelo: str
+...     epochs: int
+...     learning_rate: float
+...     def __post_init__(self):
+...         if self.epochs <= 0:
+...             raise ValueError("❌ Las épocas debe\
+n ser mayores que 0.")
+...
+>>> cfg = ConfigSegura(modelo="ResNet", epochs=10, l\
+earning_rate=0.01)
+>>> cfg.epochs = 20
+Traceback (most recent call last):
+  File "<python-input-30>", line 1, in <module>
+    cfg.epochs = 20
+    ^^^^^^^^^^
+  File "<string>", line 18, in __setattr__
+dataclasses.FrozenInstanceError: cannot assign to field 'epochs'
+>>> try:
+...     cfg_mala = ConfigSegura(modelo="BadModel", e\
+pochs=-5, learning_rate=0.01)
+... except ValueError as e:
+...     print(e)
+...
+❌ Las épocas deben ser mayores que 0.
