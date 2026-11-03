@@ -5916,3 +5916,33 @@ pochs=-5, learning_rate=0.01)
 ...     print(e)
 ...
 ❌ Las épocas deben ser mayores que 0.
+🏛️ Clase 73: Gestores de Contexto (__enter__ y __exit__)
+>>> import time
+>>> class MedidorTiempo:
+...     def __init__(self, tarea):
+...         self.tarea = tarea
+...
+...     def __enter__(self):
+...         print(f"⏱️ [INICIO] Arrancando tarea: '{\
+self.tarea}'...")
+...         self.inicio = time.time()
+...         return self
+...
+...     def __exit__(self, exc_type, exc_val, exc_tb\
+):
+...         fin = time.time()
+...         duracion = fin - self.inicio
+...         print(f" [FIN] Tarea '{self.tarea}' comp\
+letada en {duracion:.4f} segundos.")
+...
+>>> with MedidorTiempo("Entrenamiento de Red Neurona\
+l"):
+...     time.time()
+...     total = sum(i for i in range(10_000_000))
+...     print(f"   -> Cálculo finalizado con éxito."\
+)
+...
+⏱️ [INICIO] Arrancando tarea: 'Entrenamiento de Red Neuronal'...
+1793690299.8520112
+   -> Cálculo finalizado con éxito.
+ [FIN] Tarea 'Entrenamiento de Red Neuronal' completada en 3.4819 segundos.
