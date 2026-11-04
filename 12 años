@@ -5946,3 +5946,30 @@ l"):
 1793690299.8520112
    -> Cálculo finalizado con éxito.
  [FIN] Tarea 'Entrenamiento de Red Neuronal' completada en 3.4819 segundos.
+🏛️ Clase 74: Patrones de Diseño — El Patrón Singleton
+>>> class ModelRegistry:
+...     _instancia = None
+...     def __new__(cls, *args, **kwargs):
+...         if cls._instancia is None:
+...             print(" [NUEVO] Creando la instancia\
+ única del Registry...")
+...             cls._instancia = super().__new__(cls\
+)
+...         return cls._instancia
+...     def __init__(self, nombre_modelo):
+...         if not hasattr(self, 'inicializado'):
+...             self.nombre_modelo = nombre_modelo
+...             self.inicializado = True
+...             print(f"✅ Modelo '{nombre_modelo}' \
+registrado con éxito.")
+...
+>>> reg1 = ModelRegistry("ResNet50")
+ [NUEVO] Creando la instancia única del Registry...
+✅ Modelo 'ResNet50' registrado con éxito.
+>>> reg2 = ModelRegistry("BERT_Transformer")
+>>> print("¿Son el mismo objeto?", reg1 is reg2)
+¿Son el mismo objeto? True
+>>> print("Nombre en reg1:", reg1.nombre_modelo)
+Nombre en reg1: ResNet50
+>>> print("Nombre en reg2:", reg2.nombre_modelo)
+Nombre en reg2: ResNet50
