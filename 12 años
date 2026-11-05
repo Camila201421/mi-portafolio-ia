@@ -5973,3 +5973,37 @@ registrado con éxito.")
 Nombre en reg1: ResNet50
 >>> print("Nombre en reg2:", reg2.nombre_modelo)
 Nombre en reg2: ResNet50
+🏛️ Clase 75: Patrones de Diseño — El Patrón Factory (Fábrica)
+>>> from abc import ABC, abstractmethod
+>>> class ModeloML(ABC):
+...     @abstractmethod
+...     def entrenar(self):
+...         pass
+...
+>>> class ModeloVision(ModeloML):
+...     def entrenar(self):
+...         print(" Entrenando Red Neuronales de Vis\
+íon por Computador...")
+...
+>>> class ModeloTexto(ModeloML):
+...     def entrenar(self):
+...         print(" Entrenamient Modelo de Lenguajeb\
+Natural (Transformer)...")
+...
+>>> class ModelFactory:
+...     @staticmethod
+...     def crear_modelo(tipo: str) -> ModeloML:
+...         if tipo == "vision":
+...             return ModeloVision()
+...         elif tipo == "texto":
+...             return ModeloTexto()
+...         else:
+...             raise ValueError(f"❌ Tipoo de model\
+o desconocidodo: '{tipo}'")
+...
+>>> modelo_v = ModelFactory.crear_modelo("vision")
+>>> modelo_v.entrenar()
+ Entrenando Red Neuronales de Visíon por Computador...
+>>> modelo_t = ModelFactory.crear_modelo("texto")
+>>> modelo_t.entrenar()
+ Entrenamient Modelo de LenguajebNatural (Transformer)...
