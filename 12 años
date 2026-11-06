@@ -6007,3 +6007,51 @@ o desconocidodo: '{tipo}'")
 >>> modelo_t = ModelFactory.crear_modelo("texto")
 >>> modelo_t.entrenar()
  Entrenamient Modelo de LenguajebNatural (Transformer)...
+🏛️ Clase 76: Patrones de Diseño — El Patrón Observer (Observador)
+>>> from abc import ABC, abstractmethod
+>>> class Observador(ABC):
+...     @abstractmethod
+...     def actualizar(self, mensaje: str):
+...         pass
+...
+>>> class LoggerSistema(Observador):
+...     def actualizar(self, mensaje: str):
+...         print(f"[LOGGING] Guardando en disco: {m\
+ensaje}")
+...
+>>> class AlertaSlack(Observador):
+...     def actualizar(self, mensaje: str):
+...         print(f" [SLACK] ¡Alerta enviada al cana\
+l de MLOps!: {mensaje}")
+...
+>>> class PipelineEntrenamiento:
+...     def __init__(self):
+...         self._observadores = []
+...
+...     def suscribir(self, obs: Observador):
+...         self._observadores.append(obs)
+...
+...     def desuscribir(self, obs: Observador):
+...         self._observadores.remove(obs)
+...
+...     def _notificar(self, mensaje: str):
+...         for obs in self._observadores:
+...             obs.actualizar(mensaje)
+...
+...     def ejecutar_entrenamiento(self):
+...         print("Iniciando pipeline de Machine Lea\
+rning...")
+...         self._notificar("El modelo ha completado\
+ la Época 50 con éxito.")
+...
+>>> pipeline = PipelineEntrenamiento()
+>>> logger = LoggerSistema()
+... slack = AlertaSlack()
+...
+>>> pipeline.suscribir(logger)
+... pipeline.suscribir(slack)
+...
+>>> pipeline.ejecutar_entrenamiento()
+Iniciando pipeline de Machine Learning...
+[LOGGING] Guardando en disco: El modelo ha completado la Época 50 con éxito.
+ [SLACK] ¡Alerta enviada al canal de MLOps!: El modelo ha completado la Época 50 con éxito.
