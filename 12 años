@@ -6055,3 +6055,59 @@ rning...")
 Iniciando pipeline de Machine Learning...
 [LOGGING] Guardando en disco: El modelo ha completado la Época 50 con éxito.
  [SLACK] ¡Alerta enviada al canal de MLOps!: El modelo ha completado la Época 50 con éxito.
+🏛️ Clase 77: Patrones de Diseño — El Patrón Strategy (Estrategia)
+>>> from abc import ABC, abstractmethod
+>>> class EstrategiaPreprocesamiento(ABC):
+...     @abstractmethod
+...     def procesar(self, datos: list) -> list:
+...         pass
+...
+>>> class MinMaxNormalization(EstrategiaPreprocesami\
+ento):
+...     def procesar(self, datos: list) -> list:
+...         print("⚙️ Aplicando normalización MinMax\
+ ([0, 1])...")
+...         min_v, max_v = min(datos), max(datos)
+...         return [(x - min_v) / (max_v - min_v) fo\
+r x in datos]
+...
+>>> class ZScoreStandardization(EstrategiaPreprocesa\
+miento):
+...     def procesar(self, datos: list) -> list:
+...         print("⚙️ Aplicando estandarización Z-Sc\
+ore (Media=0, Desv=1)...")
+...         media = sum(datos) / len(datos)
+...         varianza = sum((x - media) ** 2 for x in\
+ datos) / len(datos)
+...         desv = varianza ** 0.5
+...         return [(x - media) / desv for x in dato\
+s]
+...
+>>> class PipelineDatos:
+...     def __init__(self, estrategia: EstrategiaPre\
+procesamiento):
+...         self.estrategia = estrategia
+...     def establecer_estrategia(self, estrategia: \
+EstrategiaPreprocesamiento):
+...         print(" Cambiando estrategia de preproce\
+samiento...")
+...         self.estrategia = estrategia
+...     def ejecutar_pipeline(self, datos: list) -> \
+list:
+...         return self.estrategia.procesar(datos)
+...
+>>> raw_data = [10, 20, 30, 40, 50]
+>>> pipeline = PipelineDatos(MinMaxNormalization())
+>>> resultado_1 = pipeline.ejecutar_pipeline(raw_dat\
+a)
+⚙️ Aplicando normalización MinMax ([0, 1])...
+>>> print("Resultado MinMax:", resultado_1)
+Resultado MinMax: [0.0, 0.25, 0.5, 0.75, 1.0]
+>>> pipeline.establecer_estrategia(ZScoreStandardiza\
+tion())
+ Cambiando estrategia de preprocesamiento...
+>>> resultado_2 = pipeline.ejecutar_pipeline(raw_dat\
+a)
+⚙️ Aplicando estandarización Z-Score (Media=0, Desv=1)...
+>>> print("Resultado Z-Score:", resultado_2)
+Resultado Z-Score: [-1.414213562373095, -0.7071067811865475, 0.0, 0.7071067811865475, 1.414213562373095
