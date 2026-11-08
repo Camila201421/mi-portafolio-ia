@@ -6111,3 +6111,131 @@ a)
 ⚙️ Aplicando estandarización Z-Score (Media=0, Desv=1)...
 >>> print("Resultado Z-Score:", resultado_2)
 Resultado Z-Score: [-1.414213562373095, -0.7071067811865475, 0.0, 0.7071067811865475, 1.414213562373095
+🏛️ Arquitectura del Videojuego: "Cyber Arena"
+>>> from abc import ABC, abstractmethod
+>>> class GameManager:
+...     _instancia = None
+...     def __new__(cls):
+...         if cls._instancia is None:
+...             print("[SISTEMA] Inicializando el nú\
+cleo de Cyber Arena...")
+...             cls._instancia = super().__new__(cls\
+)
+...             cls._instancia.turno = 1
+...             cls._instancia.partida_activa = True
+...         return cls._instancia
+...
+>>> class ObservadorCombate(ABC):
+...     @abstractmethod
+...     def actualizar(self, evento: str):
+...         pass
+...
+>>> class ConsolaLog(ObservadorCombate):
+...     def actualizar(self, evento: str):
+...         print(f"[LOG DE BATALLA] {evento}")
+...
+>>> class EstrategiaAtaque(ABC):
+...     @abstractmethod
+...     def ejecutar_ataque(self, atacante: str, obj\
+etivo: str) -> int:
+...         pass
+...
+>>> class AtaqueNormal(EstrategiaAtaque):
+...     def ejecutar_ataque(self, atacante: str, obj\
+etivo: str) -> int:
+...         daño = 15
+...         print(f"⚔️ {atacante} ejecuta un Ataque \
+Normal (-{daño} HP)")
+...         return daño
+...
+>>> class AtaqueCritico(EstrategiaAtaque):
+...     def ejecutar_ataque(self, atacante: str, obj\
+etivo: str) -> int:
+...         daño = 30
+...         print(f"{atacante} desata un ATAQUE CRÍT\
+ICO (-{daño} HP)")
+...         return daño
+...
+>>> class Robot(ABC):
+...     def __init__(self, nombre: str, vida: int, e\
+strategia: EstrategiaAtaque):
+...         self.nombre = nombre
+...         self.vida = vida
+...         self.estrategia = estrategia
+...         self._observadores = []
+...     def suscribir(self, obs: ObservadorCombate):
+...         self._observadores.append(obs)
+...     def notificar(self, mensaje: str):
+...         for obs in self._observadores:
+...             obs.actualizar(mensaje)
+...     def cambiar_estrategia(self, nueva_estrategi\
+a: EstrategiaAtaque):
+...         self.estrategia = nueva_estrategia
+...         print(f"⚙️ {self.nombre} ha cambiado su \
+estrategia de combate.")
+...     def atacar(self, objetivo):
+...         daño = self.estrategia.ejecutar_ataque(s\
+elf.nombre, objetivo.nombre)
+...         objetivo.vida -= daño
+...         self.notificar(f"{self.nombre} golpeó a \
+{objetivo.nombre}. Vida restante de {objetivo.nombre\
+}: {objetivo.vida} HP")
+...     def __str__(self):
+...         return f"{self.nombre} ({self.vida} HP)"
+...
+>>> class RobotAsalto(Robot):
+...     def __init__(self, nombre: str):
+...         super().__init__(nombre, vida=100, estra\
+tegia=AtaqueNormal())
+...
+>>> class RobotTanque(Robot):
+...     def __init__(self, nombre: str):
+...         super().__init__(nombre, vida=150, estra\
+tegia=AtaqueNormal())
+...
+>>> class RobotFactory:
+...     @staticmethod
+...     def crear_robot(tipo: str, nombre: str) -> R\
+obot:
+...         if tipo == "asalto":
+...             return RobotAsalto(nombre)
+...         elif tipo == "tanque":
+...             return RobotTanque(nombre)
+...         else:
+...             raise ValueError(f"❌ Tipo de robot \
+desconocido: '{tipo}'")
+...
+>>> if __name__ == "__main__":
+...     manager = GameManager()
+...
+[SISTEMA] Inicializando el núcleo de Cyber Arena...
+>>> logger = ConsolaLog()
+>>> robot1 = RobotFactory.crear_robot("asalto", "Cyb\
+erX-9")
+>>> robot2 = RobotFactory.crear_robot("tanque", "Iro\
+nTitan")
+>>> robot1.suscribir(logger)
+>>> print("\n---¡COMIENZA EL DUELO EN CYBER ARENA! -\
+--")
+
+---¡COMIENZA EL DUELO EN CYBER ARENA! ---
+>>> print(robot1)
+CyberX-9 (100 HP)
+>>> print(robot2)
+IronTitan (150 HP)
+>>> print("-" * 40)
+----------------------------------------
+>>> robot1.atacar(robot2)
+⚔️ CyberX-9 ejecuta un Ataque Normal (-15 HP)
+[LOG DE BATALLA] CyberX-9 golpeó a IronTitan. Vida restante de IronTitan: 135 HP
+>>> print()
+
+>>> robot1.cambiar_estrategia(AtaqueCritico())
+⚙️ CyberX-9 ha cambiado su estrategia de combate.
+>>> robot1.atacar(robot2)
+CyberX-9 desata un ATAQUE CRÍTICO (-30 HP)
+[LOG DE BATALLA] CyberX-9 golpeó a IronTitan. Vida restante de IronTitan: 105 HP
+>>> print()
+
+>>> print("--- ¡FIN DEL DUELO! ---")
+--- ¡FIN DEL DUELO! ---
