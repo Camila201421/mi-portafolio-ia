@@ -6239,3 +6239,207 @@ CyberX-9 desata un ATAQUE CRÍTICO (-30 HP)
 
 >>> print("--- ¡FIN DEL DUELO! ---")
 --- ¡FIN DEL DUELO! ---
+🏛️ Estructura Base del Snake Avanzado 1
+>>> from abc import ABC, abstractmethod
+>>> import os
+>>> class ObservadorJuego(ABC):
+...     @abstractmethod
+...     def actualizar(self, evento: str, datos: \
+dict):
+...         pass
+...
+>>> class MarcadorPuntos(ObservadorJuego):
+...     def __init__(self):
+...         self.puntos = 0
+...     def actualizar(self, evento: str, datos: \
+dict):
+...         if evento == "COMIDA_DEVORADA":
+...             self.puntos += datos.get("valor",\
+ 10)
+...             print(f"[MARCADOR] ¡Puntuación ac\
+tualizada! Puntos: {self.puntos}")
+...
+>>> class EstadoJuego(ABC):
+...     @abstractmethod
+...     def manejar_entrada(self, tecla: str):
+...         pass
+...     @abstractmethod
+...     def actualizar(self):
+...         pass
+...
+>>> class EstadoJugando(EstadoJuego):
+...     def manejar_entrada(self, tecla: str):
+...         print(f"[ESTADO JUGANDO] Movimiento d\
+etectado: {tecla}")
+...     def actualizar(self):
+...         print("[ESTADO JUGANDO] Actualizando \
+posiciones de la serpiente...")
+...
+>>> class EstadoGameOver(EstadoJuego):
+...     def manejar_entrada(self, tecla: str):
+...         print(f"[ESTADO JUGANDO] Movimiento d\
+etectado: {tecla}")
+...     def actualizar(self):
+...         print("[ESTADO JUGANDO] Actualizando \
+posiciones de la serpiente...")
+...
+>>> class EstadoGameOver(EstadoJuego):
+...     def manejar_entrada(self, tecla: str):
+...         print("[GAME OVER] Presiona R para re\
+iniciar.")
+...     def actualizar(self):
+...         print("[GAME OVER] Juego pausado por \
+colisión.")
+...
+>>> class SnakeGameManager:
+...     _instancia = None
+...     def __new__(cls):
+...         if cls._instancia is None:
+...             print("[SISTEMA] Inicializando el\
+ motor del Snake avanzadp...")
+...             cls._instancia = super().__new__(\
+cls)
+...             cls._instancia.estado_actual = Es\
+tadoJugando()
+...             cls._instancia._observadores = []
+...         return cls._instancia
+...     def suscribir(self, obs: ObservadorJuego)\
+:
+...         self._observador.append(obs)
+...     def notificar(self, evento: str, datos: d\
+ict):
+...         for obs in self._observadores:
+...             obs.actualizar(evento, datos)
+...     def cambiar_estado(self, nuevo_estado: Es\
+tadoJuego):
+...         self.estado_actual = nuevo_estado
+...         print(f"⚙️ [ESTADO] Transición a: {ty\
+pe(nuevo_estado).__name__}")
+🏛️ Estructura Base del Snake Avanzado 2
+
+
+
+
+
+
+
+
+
+
+
+
+from abc import ABC, abstractmethod
+import os
+from dataclasses import dataclass
+import random
+
+# --- 1. PATRÓN OBSERVER ---
+class ObservadorJuego(ABC):
+    @abstractmethod
+    def actualizar(self, evento: str, datos: dict):
+        pass
+
+class MarcadorPuntos(ObservadorJuego):
+    def __init__(self):
+        self.puntos = 0
+    def actualizar(self, evento: str, datos: dict):
+        if evento == "COMIDA_DEVORADA":
+            self.puntos += datos.get("valor", 10)
+            print(f"[MARCADOR] ¡Puntuación actualizada! Puntos: {self.puntos}")
+
+# --- 2. PATRÓN STATE ---
+class EstadoJuego(ABC):
+    @abstractmethod
+    def manejar_entrada(self, tecla: str):
+        pass
+    @abstractmethod
+    def actualizar(self):
+        pass
+
+class EstadoJugando(EstadoJuego):
+    def manejar_entrada(self, tecla: str):
+        print(f"[ESTADO JUGANDO] Movimiento detectado: {tecla}")
+    def actualizar(self):
+        print("[ESTADO JUGANDO] Actualizando posiciones de la serpiente...")
+
+class EstadoGameOver(EstadoJuego):
+    def manejar_entrada(self, tecla: str):
+        print("[GAME OVER] Presiona R para reiniciar.")
+    def actualizar(self):
+        print("[GAME OVER] Juego pausado por colisión.")
+
+# --- 3. MODELO DE COORDENADAS, SERPIENTE Y TABLERO ---
+@dataclass(frozen=True)
+class Coordenada:
+    x: int
+    y: int
+
+    def __add__(self, otra: 'Coordenada') -> 'Coordenada':
+        return Coordenada(self.x + otra.x, self.y + otra.y)
+
+class Serpiente:
+    def __init__(self, posicion_inicial: Coordenada):
+        self.cuerpo = [
+            posicion_inicial, 
+            Coordenada(posicion_inicial.x - 1, posicion_inicial.y), 
+            Coordenada(posicion_inicial.x - 2, posicion_inicial.y)
+        ]
+        self.direccion = Coordenada(1, 0)
+        self.creciendo = False
+
+    def obtener_cabeza(self) -> Coordenada:
+        return self.cuerpo[0]
+
+    def cambiar_direccion(self, nueva_dir: Coordenada):
+        if (self.direccion.x + nueva_dir.x != 0) or (self.direccion.y + nueva_dir.y != 0):
+            self.direccion = nueva_dir
+
+    def mover(self):
+        nueva_cabeza = self.obtener_cabeza() + self.direccion
+        self.cuerpo.insert(0, nueva_cabeza)
+        if not self.creciendo:
+            self.cuerpo.pop()
+        else:
+            self.creciendo = False
+
+    def crecer(self):
+        self.creciendo = True
+
+class Tablero:
+    def __init__(self, ancho: int, alto: int):
+        self.ancho = ancho
+        self.alto = alto
+        self.comida = Coordenada(random.randint(0, ancho - 1), random.randint(0, alto - 1))
+
+    def generar_comida(self, cuerpo_serpiente: list[Coordenada]):
+        while True:
+            nueva_comida = Coordenada(random.randint(0, self.ancho - 1), random.randint(0, self.alto - 1))
+            if nueva_comida not in cuerpo_serpiente:
+                self.comida = nueva_comida
+                break
+
+    def verificar_colision_paredes(self, cabeza: Coordenada) -> bool:
+        return not (0 <= cabeza.x < self.ancho and 0 <= cabeza.y < self.alto)
+
+# --- 4. GESTOR CENTRAL (SINGLETON CORREGIDO) ---
+class SnakeGameManager:
+    _instancia = None
+
+    def __new__(cls):
+        if cls._instancia is None:
+            print("[SISTEMA] Inicializando el motor del Snake avanzado...")
+            cls._instancia = super().__new__(cls)
+            cls._instancia.estado_actual = EstadoJugando()
+            cls._instancia._observadores = []
+        return cls._instancia
+
+    def suscribir(self, obs: ObservadorJuego):
+        self._observadores.append(obs)  # Corregido con 's' en _observadores
+
+    def notificar(self, evento: str, datos: dict):
+        for obs in self._observadores:
+            obs.actualizar(evento, datos)
+
+    def cambiar_estado(self, nuevo_estado: EstadoJuego):
+        self.estado_actual = nuevo_estado
+        print(f"⚙️ [ESTADO] Transición a: {type(nuevo_estado).__name__}")
